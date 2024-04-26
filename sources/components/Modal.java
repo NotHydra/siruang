@@ -29,9 +29,9 @@ public class Modal {
         this.logger.debug("Confirmation");
 
         final Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmation.setTitle("Notification");
-        confirmation.setHeaderText("Confirmation");
-        confirmation.setContentText("Are you sure?");
+        confirmation.setTitle("Notifikasi");
+        confirmation.setHeaderText("Konfirmasi");
+        confirmation.setContentText("Apakah anda yakin?");
 
         confirmation.getButtonTypes().setAll(ButtonType.YES, ButtonType.NO);
 
@@ -44,8 +44,8 @@ public class Modal {
         this.logger.debug("Fail");
 
         final Alert error = new Alert(Alert.AlertType.ERROR);
-        error.setTitle("Notification");
-        error.setHeaderText("Fail");
+        error.setTitle("Notifikasi");
+        error.setHeaderText("Gagal");
         error.setContentText(message);
         error.showAndWait();
     }

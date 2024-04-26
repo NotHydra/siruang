@@ -30,11 +30,11 @@ public class FasilitasModel extends BaseModel {
 
 	private void validate(String NamaFasilitas, String KeteranganFasilitas) {
 		if (NamaFasilitas == null ||  NamaFasilitas.trim().isEmpty()) { 
-			throw new IllegalArgumentException("NamaFasilitas cannot be empty");
+			throw new IllegalArgumentException("Nama tidak boleh kosong");
 		}
 
 		if (KeteranganFasilitas == null || KeteranganFasilitas.trim()isEmpty()) {
-			throw new IllegalArgumentException("KeteranganFasilitas cannot be empty");
+			throw new IllegalArgumentException("Keterangan tidak boleh kosong");
 		}
 	}
 

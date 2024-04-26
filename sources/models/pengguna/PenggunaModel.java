@@ -1,4 +1,6 @@
 package models.pengguna;
+
+
 import java.util.logging.Level;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -21,7 +23,7 @@ public class PenggunaModel extends BaseModel {
         this.camelCase = camelCase;
         this.Password = Password;
         this.Aktif = Aktif;
-        this.LevelEnum = LevelEnum; 
+        this.LevelEnum = LevelEnum;
     }
 
     public PenggunaModel(String CamelCase, String Username, String Password, boolean Aktif, Level LevelEnum) {
@@ -37,15 +39,15 @@ public class PenggunaModel extends BaseModel {
 
     private void validate(String camelCase, String Username, String password) {
         if (camelCase == null || camelCase.trim().isEmpty()) {
-            throw new IllegalArgumentException("Nama cannot be empty");
+            throw new IllegalArgumentException("Nama tidak boleh kosong");
         }
 
         if (Username == null || Username.trim().isEmpty()) {
-            throw new IllegalArgumentException("Username cannot be empty");
+            throw new IllegalArgumentException("Username tidak boleh kosong");
         }
 
         if (Password == null || Password.trim().isEmpty()) {
-            throw new IllegalArgumentException("Password cannot be empty");
+            throw new IllegalArgumentException("Password tidak boleh kosong");
         }
     }
 
@@ -67,15 +69,16 @@ public class PenggunaModel extends BaseModel {
 
     public String getPassword() {
         return this.Password;
-    
+
     }
+
     @Override
     public String toString() {
         return "PenggunaModel("
                 + "id=" + id() +
-            	", camelCase='" + camelCase + '\'' +
-           	 	", Username='" + Username + '\'' +
+                ", camelCase='" + camelCase + '\'' +
+                ", Username='" + Username + '\'' +
                 ", Password='" + Password + '\'' +
-           	 	'}';
+                '}';
     }
 }

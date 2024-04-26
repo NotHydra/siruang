@@ -1,0 +1,165 @@
+$backgroundColor: #F1F5FB;
+$mainColor: #FFFFFF;
+
+$accentColor: #28A745;
+
+$textColorLight: #F5F5F5;
+$textColorDark: #4A4A4A;
+
+
+$fontFamily: "Montserrat Bold", "Roboto", sans-serif;
+
+$borderShadow: darken($mainColor, 12.5%);
+
+.background {
+    -fx-background-color: $backgroundColor;
+}
+
+.separator {
+    -fx-background-color: $backgroundColor;
+
+    -fx-translate-x: 1px;
+}
+
+.sidebar {
+    -fx-background-color: $accentColor;
+    -fx-background-radius: 0 0 28px 0;
+
+    -fx-border-color: $borderShadow;
+    -fx-border-width: 0 1 1 0;
+    -fx-border-radius: 0 0 28px 0;
+
+    .sidebar-brand {
+        .sidebar-brand-icon {
+            -fx-fill: $textColorLight;
+            
+            -glyph-size: 80px;
+        }
+
+        .sidebar-brand-text {
+            -fx-text-fill: $textColorLight;
+            -fx-alignment: center;
+
+            -fx-font-family: $fontFamily;
+            -fx-font-size: 21px;
+        }
+    }
+    
+    .sidebar-menu {
+        .sidebar-menu-item {
+            .sidebar-menu-item-icon {
+                -fx-fill: $textColorLight;
+                
+                -glyph-size: 32px;
+            }
+
+            -fx-background-color: transparent;
+            -fx-background-radius: 28px 0 0 28px;
+
+            -fx-border-radius: 28px 0 0 28px;
+            
+            -fx-text-fill: $textColorLight;
+            -fx-alignment: center;
+
+            -fx-font-family: $fontFamily;
+            -fx-font-size: 18px;
+
+            -fx-cursor: hand;
+
+            &:hover {
+                .sidebar-menu-item-icon {
+                    -fx-fill: darken($textColorLight, 6%);
+                }
+
+                -fx-background-color: darken($accentColor, 6%);
+
+                -fx-text-fill: darken($textColorLight, 6%);
+            }
+        }
+
+        .sidebar-menu-item-active {
+            .sidebar-menu-item-icon {
+                -fx-fill: $accentColor !important;
+            }
+
+            -fx-background-color: $backgroundColor !important;
+
+            -fx-text-fill: $accentColor !important;
+
+            -fx-translate-x: 1px;
+        }
+    }
+}
+
+.content {
+    .content-header {
+        -fx-background-color: $mainColor;
+
+        -fx-border-color: $borderShadow;
+        -fx-border-width: 0 0 1 0;
+
+        .content-header-title {
+            -fx-text-fill: $textColorDark;
+            -fx-alignment: center;
+
+            -fx-font-family: $fontFamily;
+            -fx-font-size: 21px;
+        }
+
+        .content-header-profile {
+            -fx-text-fill: $textColorDark;
+            -fx-alignment: center;
+
+            -fx-font-family: $fontFamily;
+            -fx-font-size: 18px;
+        }
+    }
+
+    .content-body {
+        .content-body-item {
+            -fx-background-color: $mainColor;
+            -fx-background-radius: 28px;
+
+            -fx-border-color: $borderShadow;
+            -fx-border-width: 1;
+            -fx-border-radius: 28px;
+
+            .content-body-item-subtitle {
+                -fx-text-fill: $textColorDark;
+                -fx-alignment: left;
+
+                -fx-font-family: $fontFamily;
+                -fx-font-size: 18px;
+
+                -fx-border-color: $borderShadow;
+                -fx-border-width: 0 0 1 0;
+            }
+
+            .content-body-item-table {
+                -fx-background-color: $mainColor;
+                -fx-background-radius: 28px;
+
+                -fx-border-color: $borderShadow;
+                -fx-border-width: 1;
+                -fx-border-radius: 28px;
+
+                .table-row-cell {
+                    -fx-background-color: $mainColor;
+                    -fx-background-radius: 28px;
+
+                    -fx-border-color: $borderShadow;
+                    -fx-border-width: 0 0 1 0;
+                    -fx-border-radius: 28px;
+
+                    .table-cell {
+                        -fx-text-fill: $textColorDark;
+                        -fx-alignment: center;
+
+                        -fx-font-family: $fontFamily;
+                        -fx-font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import providers.Logger;
 import providers.View;
 
@@ -15,16 +14,14 @@ public class App extends Application {
 	public static void main(String[] args) {
 		Logger.getInstance().info("Starting application");
 
-		View.getInstance().add("book", "models/book/Book");
-		View.getInstance().add("author", "models/author/Author");
-		View.getInstance().add("genre", "models/genre/Genre");
+		View.getInstance().add("fasilitas", "models/fasilitas/Fasilitas");
 
 		App.launch(args);
 	};
 
 	@Override
 	public void start(Stage stage) {
-		scene = new Scene(App.loadView("genre"));
+		scene = new Scene(App.loadView("fasilitas"));
 		stage.setScene(App.scene);
 		stage.show();
 	}

@@ -1,66 +1,64 @@
 package models.pengguna;
-
-
-import java.security.Timestamp;
 import java.util.logging.Level;
-
+import java.sql.Time;
+import java.sql.Timestamp;
 import global.base.BaseModel;
 
 public class PenggunaModel extends BaseModel {
-    private final String Nama;
+    private final String camelCase;
     private final String Username;
     private final String Password;
     private final boolean Aktif;
     private final Level LevelEnum;
-    private final Timestamp Dibuat;
-    private final Timestamp Diubah;
+    private final Timestamp TanggalDibuat;
+    private final Timestamp TanggalDiubah;
 
     public PenggunaModel(int id, String Nama, String Username, String Password, boolean Aktif, Level LevelEnum, Timestamp Dibuat, Timestamp Diubah) {
         super(-1);
 
-        validate(Nama, Username, Password, Aktif, LevelEnum);
+        validate(camelCase, Username, Password, Aktif, LevelEnum);
 
-        this.Nama = Nama;
+        this.camelCase = camelCase;
         this.Password = Password;
         this.Aktif = Aktif;
         this.LevelEnum = LevelEnum; 
     }
 
-    public PenggunaModel(String Nama, String Username, String Password, boolean Aktif, Level LevelEnum) {
+    public PenggunaModel(String CamelCase, String Username, String Password, boolean Aktif, Level LevelEnum) {
         super(id);
 
-        validate(Nama, Username, Password, Aktif, LevelEnum);
+        validate(camelCase, Username, Password, Aktif, LevelEnum);
 
-        this.Nama = Nama;
+        this.camelCase = camelCase;
         this.Password = Password;
         this.Aktif = Aktif;
         this.LevelEnum = LevelEnum;
     }
 
-    private void validate(String Nama, String Username, String password, boolean aktif, Level LevelEnum) {
-        if (Nama == null || Nama.trim().isEmpty()) {
+    private void validate(String camelCase, String Username, String password) {
+        if (camelCase == null || camelCase.trim().isEmpty()) {
             throw new IllegalArgumentException("Name cannot be empty");
         }
 
         if (Username == null || Username.trim().isEmpty()) {
             throw new IllegalArgumentException("Name cannot be empty");
         }
-        if (Aktif == null || Aktif.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
-        }
-        if (LevelEnum == null || LevelEnum.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
-        }
-        if (Dibuat == null || Dibuat.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
-        }
-        if (Diubah == null || Diubah.trim().isEmpty()) {
+
+        if (Password == null || Password.trim().isEmpty()) {
             throw new IllegalArgumentException("Name cannot be empty");
         }
     }
 
-    public String getNama() {
-        return this.Nama;
+    public String getcamelCase() {
+        return this.camelCase;
+    }
+
+    public Timestamp getTanggaldibuat() {
+        return this.TanggalDibuat;
+    }
+
+    public Timestamp getTanggaldiubah() {
+        return this.TanggalDiubah;
     }
 
     public int getUsername() {
@@ -69,30 +67,15 @@ public class PenggunaModel extends BaseModel {
 
     public String getPassword() {
         return this.Password;
-    }
-
-    public boolean getAktif() {
-        return this.Aktif;
-    }
-
-    public boolean getLevel() {
-        return this.LevelEnum;
-    }
-
-    public boolean getDibuat() {
-        return this.Timestamp;
-
-    }
-
-    public boolean getDiubah() {
-        return this.Timestamp;
+    
     }
     @Override
     public String toString() {
-        return "AuthorModel("
-                + "id=" + this.id + ", "
-                + "name=" + this.name + ", "
-                + "idBook=" + this.idBook
-                + ")";
+        return "PenggunaModel("
+                + "id=" + id() +
+            	", camelCase='" + camelCase + '\'' +
+           	 	", Username='" + Username + '\'' +
+                ", Password='" + Password + '\'' +
+           	 	'}';
     }
 }

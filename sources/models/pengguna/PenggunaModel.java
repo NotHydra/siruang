@@ -37,15 +37,15 @@ public class PenggunaModel extends BaseModel {
 
     private void validate(String camelCase, String Username, String password) {
         if (camelCase == null || camelCase.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
+            throw new IllegalArgumentException("Nama cannot be empty");
         }
 
         if (Username == null || Username.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
+            throw new IllegalArgumentException("Username cannot be empty");
         }
 
         if (Password == null || Password.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
+            throw new IllegalArgumentException("Password cannot be empty");
         }
     }
 

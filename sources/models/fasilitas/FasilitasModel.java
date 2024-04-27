@@ -38,26 +38,26 @@ public class FasilitasModel extends BaseModel {
 		}
 	}
 
-	public String get.namaFasilitas() {
+	public String getnamaFasilitas() {
 		return this.namaFasilitas;
 	}
 
-	public String get.keteranganFasilitas() {
+	public String getketeranganFasilitas() {
 		return this.keteranganFasilitas;
 	}
 
-	public Timestamp get.tanggalDibuat() {
+	public Timestamp gettanggalDibuat() {
 		return this.tanggalDibuat;
 	}
 
-	public Timestamp get.tanggalDiubah() {
+	public Timestamp gettanggalDiubah() {
 		return this.tanggalDiubah;
 	}
 
 	@Override
 	public String toString() {
 		return "FasilitasModel("
-				+ "id=" + this.id() + ", "
+				+ "id=" + id + ", "
 				+ "namaFasilitas=" + this.namaFasilitas + ", "
 				+ "keteranganFasilitas=" + this.keteranganFasilitas
 				+ ")";

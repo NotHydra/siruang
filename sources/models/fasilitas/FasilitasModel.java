@@ -16,6 +16,9 @@ public class Model extends BaseModel {
 
 		this.nama = nama;
 		this.keterangan = keterangan;
+		this.dibuat = null;
+		this.diubah = null;
+
 	}
 
 	public Model(int id, String nama, String keterangan) {

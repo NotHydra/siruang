@@ -1,4 +1,4 @@
-package models.;
+package models;
 
 import global.base.BaseModel;
 import java.sql.Timestamp;

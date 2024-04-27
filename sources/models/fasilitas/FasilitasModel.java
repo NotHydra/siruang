@@ -3,7 +3,7 @@ package models;
 import global.base.BaseModel;
 import java.sql.Timestamp;
 
-public class Model extends BaseModel {
+public class FasilitasModel extends BaseModel {
 
 	private final String nama;
 	private final String keterangan;
@@ -61,7 +61,7 @@ public class Model extends BaseModel {
 
 	@Override
 	public String toString() {
-		return "Model("
+		return "FasilitasModel("
 				+ "id=" + id + ", "
 				+ "nama=" + nama + ", "
 				+ "keterangan=" + keterangan

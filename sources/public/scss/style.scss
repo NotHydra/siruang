@@ -97,9 +97,11 @@ $borderShadow: darken($mainColor, 12.5%);
 .content {
     .content-header {
         -fx-background-color: $mainColor;
+        -fx-background-radius: 0 0 28px 0;
 
         -fx-border-color: $borderShadow;
-        -fx-border-width: 0 0 1 0;
+        -fx-border-width: 0 1 1 0;
+        -fx-border-radius: 0 0 28px 0;
 
         .content-header-title {
             -fx-text-fill: $textColorDark;

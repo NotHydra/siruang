@@ -56,8 +56,10 @@
 
 .content .content-header {
   -fx-background-color: #FFFFFF;
+  -fx-background-radius: 0 0 28px 0;
   -fx-border-color: #dfdfdf;
-  -fx-border-width: 0 0 1 0;
+  -fx-border-width: 0 1 1 0;
+  -fx-border-radius: 0 0 28px 0;
 }
 .content .content-header .content-header-title {
   -fx-text-fill: #4A4A4A;

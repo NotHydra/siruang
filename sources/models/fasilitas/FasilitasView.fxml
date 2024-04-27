@@ -155,9 +155,9 @@
                         <Insets left="16.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label styleClass="content-header-profile" stylesheets="@../../public/css/style.css" text="Username - Role" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                  <Label fx:id="labelProfile" styleClass="content-header-profile" stylesheets="@../../public/css/style.css" text="Username - Role" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                      <GridPane.margin>
-                        <Insets right="16.0" />
+                        <Insets right="24.0" />
                      </GridPane.margin>
                   </Label>
                </children>
@@ -185,12 +185,12 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <TableView maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="515.0" styleClass="content-body-item-table" stylesheets="@../../public/css/style.css" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="tableMain" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onMouseClicked="#tableMainItemClick" prefHeight="515.0" styleClass="content-body-item-table" stylesheets="@../../public/css/style.css" VBox.vgrow="ALWAYS">
                           <columns>
-                            <TableColumn prefWidth="75.0" styleClass="content-body-item-table-header" text="Nama" />
-                            <TableColumn prefWidth="75.0" styleClass="content-body-item-table-header" text="Keterangan" />
-                              <TableColumn prefWidth="75.0" styleClass="content-body-item-table-header" text="Dibuat" />
-                              <TableColumn prefWidth="75.0" styleClass="content-body-item-table-header" text="Diubah" />
+                            <TableColumn fx:id="tableMainColumnNama" prefWidth="143.19998779296873" styleClass="content-body-item-table-header" text="Nama" />
+                            <TableColumn fx:id="tableMainColumnKeterangan" minWidth="7.20001220703125" prefWidth="150.0" styleClass="content-body-item-table-header" text="Keterangan" />
+                              <TableColumn fx:id="tableMainColumnDibuat" minWidth="-Infinity" prefWidth="100.0" styleClass="content-body-item-table-header" text="Dibuat" />
+                              <TableColumn fx:id="tableMainColumnDiubah" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="100.0" styleClass="content-body-item-table-header" text="Diubah" />
                           </columns>
                         </TableView>
                      </children>
@@ -212,7 +212,7 @@
                                     <Insets bottom="4.0" />
                                  </padding>
                               </Label>
-                              <TextField styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
+                              <TextField fx:id="textFieldNama" styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -232,7 +232,7 @@
                                     <Insets bottom="4.0" />
                                  </padding>
                               </Label>
-                              <TextField styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
+                              <TextField fx:id="textFieldKeterangan" styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -252,7 +252,7 @@
                                     <Insets bottom="4.0" />
                                  </padding>
                               </Label>
-                              <TextField editable="false" styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
+                              <TextField fx:id="textFieldDibuat" editable="false" styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -275,7 +275,7 @@
                                     <Insets bottom="4.0" />
                                  </padding>
                               </Label>
-                              <TextField editable="false" styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
+                              <TextField fx:id="textFieldDiubah" editable="false" styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>

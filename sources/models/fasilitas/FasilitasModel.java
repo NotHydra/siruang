@@ -10,6 +10,7 @@ public class FasilitasModel extends BaseModel {
 	private final Timestamp tanggalDiubah;
 
 	public FasilitasModel(String namaFasilitas, String keteranganFasilitas) {
+		super(-1);
 
 		validate(namaFasilitas, keteranganFasilitas);
 
@@ -57,7 +58,7 @@ public class FasilitasModel extends BaseModel {
 	@Override
 	public String toString() {
 		return "FasilitasModel("
-				+ "id=" + id + ", "
+				+ "id=" + this.id + ", "
 				+ "namaFasilitas=" + this.namaFasilitas + ", "
 				+ "keteranganFasilitas=" + this.keteranganFasilitas
 				+ ")";

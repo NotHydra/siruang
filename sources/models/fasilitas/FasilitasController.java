@@ -1,15 +1,19 @@
 package models.fasilitas;
 
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class FasilitasController {
+public class FasilitasController implements Initializable {
 
 	@FXML
 	private Label labelProfile;
@@ -40,6 +44,11 @@ public class FasilitasController {
 
 	@FXML
 	private TextField textFieldNama;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+	}
 
 	@FXML
 	void onActionFasilitas(ActionEvent event) {
@@ -85,5 +94,4 @@ public class FasilitasController {
 	void tableMainItemClick(MouseEvent event) {
 
 	}
-
 }

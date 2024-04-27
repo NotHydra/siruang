@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../public/css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <GridPane prefHeight="688.0" prefWidth="240.0" styleClass="sidebar" stylesheets="@../../public/css/style.css" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="354.0000366210937" minHeight="10.0" prefHeight="148.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="570.5332855224609" minHeight="10.0" prefHeight="540.6666320800781" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <GridPane styleClass="sidebar-brand" stylesheets="@../../public/css/style.css">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="119.9333251953125" minHeight="10.0" prefHeight="102.4666732788086" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="88.79998931884765" minHeight="10.0" prefHeight="56.33332672119141" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="55.0" prefWidth="240.0" styleClass="sidebar-brand-text" stylesheets="@../../public/css/style.css" text="Peminjaman Ruangan" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Montserrat Bold" size="47.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView glyphName="CALENDAR" size="20" styleClass="sidebar-brand-icon" GridPane.halignment="CENTER" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="508.8000244140625" minHeight="10.0" prefHeight="461.33331298828125" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="91.4666870117187" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox prefHeight="465.0" prefWidth="240.0" styleClass="sidebar-menu" stylesheets="@../../public/css/style.css">
+                     <children>
+                        <Separator prefWidth="200.0" stylesheets="@../../public/css/style.css" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionPeminjaman" prefHeight="46.0" prefWidth="195.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Peminjaman">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="CALENDAR" size="20" styleClass="sidebar-menu-item-icon" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="8.0" top="4.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="8.0" top="8.0" />
+                           </padding>
+                        </Button>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionRuangan" prefHeight="46.0" prefWidth="195.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Ruangan">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="BUILDING" styleClass="sidebar-menu-item-icon" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="8.0" top="4.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="8.0" top="8.0" />
+                           </padding>
+                        </Button>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionFasilitas" prefHeight="46.0" prefWidth="195.0" stylesheets="@../../public/css/style.css" text="Fasilitas">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="DROPBOX" styleClass="sidebar-menu-item-icon" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="8.0" top="4.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="8.0" top="8.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="sidebar-menu-item" />
+                              <String fx:value="sidebar-menu-item-active" />
+                           </styleClass>
+                        </Button>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionPengguna" prefHeight="46.0" prefWidth="195.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Pengguna">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="GROUP" styleClass="sidebar-menu-item-icon" />
+                           </graphic>
+                           <padding>
+                              <Insets bottom="8.0" top="8.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="8.0" top="4.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="63.0" prefWidth="240.0" styleClass="sidebar-menu" stylesheets="@../../public/css/style.css" GridPane.rowIndex="1">
+                     <children>
+                        <Separator prefHeight="0.0" prefWidth="240.0" stylesheets="@../../public/css/style.css" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionLogout" prefHeight="53.0" prefWidth="240.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Logout">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="REPLY" styleClass="sidebar-menu-item-icon" />
+                           </graphic>
+                           <padding>
+                              <Insets bottom="8.0" top="8.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="8.0" top="4.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </left>
+   <center>
+      <GridPane styleClass="content" stylesheets="@../../public/css/style.css" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="354.0000366210937" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="650.73334274292" minHeight="10.0" prefHeight="650.73334274292" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane prefHeight="61.0" prefWidth="1008.0" styleClass="content-header" stylesheets="@../../public/css/style.css">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label styleClass="content-header-title" stylesheets="@../../public/css/style.css" text="Fasilitas">
+                     <GridPane.margin>
+                        <Insets left="16.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="labelProfile" styleClass="content-header-profile" stylesheets="@../../public/css/style.css" text="Username - Role" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                     <GridPane.margin>
+                        <Insets right="24.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane hgap="16.0" styleClass="content-body" stylesheets="@../../public/css/style.css" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="320.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <GridPane.margin>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </GridPane.margin>
+               <children>
+                  <VBox prefHeight="614.0" prefWidth="232.0" styleClass="content-body-item" stylesheets="@../../public/css/style.css">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" prefHeight="56.0" prefWidth="625.0" styleClass="content-body-item-subtitle" text="Tabel">
+                           <padding>
+                              <Insets bottom="12.0" left="20.0" right="12.0" top="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <TableView fx:id="tableMain" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onMouseClicked="#tableMainItemClick" prefHeight="515.0" styleClass="content-body-item-table" stylesheets="@../../public/css/style.css" VBox.vgrow="ALWAYS">
+                          <columns>
+                            <TableColumn fx:id="tableMainColumnNama" prefWidth="143.19998779296873" styleClass="content-body-item-table-header" text="Nama" />
+                            <TableColumn fx:id="tableMainColumnKeterangan" minWidth="7.20001220703125" prefWidth="150.0" styleClass="content-body-item-table-header" text="Keterangan" />
+                              <TableColumn fx:id="tableMainColumnDibuat" minWidth="-Infinity" prefWidth="100.0" styleClass="content-body-item-table-header" text="Dibuat" />
+                              <TableColumn fx:id="tableMainColumnDiubah" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="100.0" styleClass="content-body-item-table-header" text="Diubah" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" styleClass="content-body-item" stylesheets="@../../public/css/style.css" GridPane.columnIndex="1">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" styleClass="content-body-item-subtitle" text="Data">
+                           <padding>
+                              <Insets bottom="12.0" left="20.0" right="12.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" styleClass="content-body-data-label" stylesheets="@../../public/css/style.css" text="Nama">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="4.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="textFieldNama" styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="8.0" left="24.0" right="24.0" top="16.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" styleClass="content-body-data-label" stylesheets="@../../public/css/style.css" text="Keterangan">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="4.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="textFieldKeterangan" styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="8.0" left="24.0" right="24.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" styleClass="content-body-data-label" stylesheets="@../../public/css/style.css" text="Dibuat">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="4.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="textFieldDibuat" editable="false" styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="8.0" left="24.0" right="24.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" styleClass="content-body-data-label" stylesheets="@../../public/css/style.css" text="Diubah">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="4.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="textFieldDiubah" editable="false" styleClass="content-body-data-textfield" stylesheets="@../../public/css/style.css">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="8.0" left="24.0" right="24.0" />
+                           </VBox.margin>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" styleClass="content-body-item" stylesheets="@../../public/css/style.css" GridPane.columnIndex="2">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" styleClass="content-body-item-subtitle" text="Aksi">
+                           <padding>
+                              <Insets bottom="12.0" left="20.0" right="12.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionTambah" styleClass="content-body-action-button-success" stylesheets="@../../public/css/style.css" text="Tambah">
+                           <VBox.margin>
+                              <Insets bottom="8.0" left="16.0" right="16.0" top="16.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="8.0" left="12.0" right="12.0" top="8.0" />
+                           </padding>
+                        </Button>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionUbah" styleClass="content-body-action-button-warning" stylesheets="@../../public/css/style.css" text="Ubah">
+                           <padding>
+                              <Insets bottom="8.0" left="12.0" right="12.0" top="8.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="8.0" left="16.0" right="16.0" top="4.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionHapus" styleClass="content-body-action-button-danger" stylesheets="@../../public/css/style.css" text="Hapus">
+                           <padding>
+                              <Insets bottom="8.0" left="12.0" right="12.0" top="8.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="8.0" left="16.0" right="16.0" top="4.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+</BorderPane>

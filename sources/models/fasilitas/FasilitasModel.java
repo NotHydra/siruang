@@ -1,68 +1,70 @@
-package models.fasilitas;
+package models;
 
 import global.base.BaseModel;
-import camelcase.CamelCase;
 import java.sql.Timestamp;
 
-
 public class FasilitasModel extends BaseModel {
-	private final String Nama;
-	private final String Keterangan;
-	private final Timestamp TanggalDibuat;
-	private final Timestamp TanggalDiubah;
 
-	public FasilitasModel(String Nama, String Keterangan) {
+	private final String nama;
+	private final String keterangan;
+	private final Timestamp dibuat;
+	private final Timestamp diubah;
+
+	public Model(String nama, String keterangan) {
 		super(-1);
 
-		validate(Nama, Keterangan);
+		validate(nama, keterangan);
 
-		this.Nama = Nama;
-		this.Keterangan = Keterangan;
+		this.nama = nama;
+		this.keterangan = keterangan;
+		this.dibuat = null;
+		this.diubah = null;
+
 	}
 
-	public FasilitasModel(int id, String Nama, String Keterangan, Timestamp TanggalDibuat, Timestamp TanggalDiubah) {
+	public Model(int id, String nama, String keterangan, Timestamp dibuat, Timestamp diubah) {
 		super(id);
 
-		validate(id, Nama, Keterangan, TanggalDibuat, TanggalDiubah);
+		validate(id, nama, keterangan, dibuat, diubah);
 
-		this.Nama = Nama;
-		this.Keterangan = Keterangan;
-		this.TanggalDibuat = TanggalDibuat;
-		this.TanggalDiubah = TanggalDiubah;
+		this.nama = nama;
+		this.keterangan = keterangan;
+		this.dibuat = dibuat;
+		this.diubah = diubah;
 	}
 
-	private void validate(String Nama, String Keterangan) {
-		if (Nama == null ||  Nama.trim().isEmpty()) { 
-			throw new IllegalArgumentException("Nama cannot be empty");
+	private void validate(String nama, String keterangan) {
+		if (nama == null ||  nama.trim().isEmpty()) { 
+			throw new IllegalArgumentException("Nama tidak boleh kosong");
 		}
 
-		if (Keterangan == null || Keterangan.trim()isEmpty()) {
-			throw new IllegalArgumentException("Keterangan cannot be empty");
+		if (keterangan == null || keterangan.trim().isEmpty()) {
+			throw new IllegalArgumentException("Keterangan tidak boleh kosong");
 		}
 	}
 
 	public String getNama() {
-		return this.Nama;
+		return this.nama;
 	}
 
 	public String getKeterangan() {
-		return this.Keterangan;
+		return this.keterangan;
 	}
 
-	public Timestamp getTanggalDibuat() {
-		return this.TanggalDibuat;
+	public Timestamp getDibuat() {
+		return this.dibuat;
 	}
 
-	public Timestamp getTanggalDiubah() {
-		return this.TanggalDiubah;
+	public Timestamp getDiubah() {
+		return this.diubah;
 	}
 
 	@Override
 	public String toString() {
-    	return "FasilitasModel{" +
-            	"id=" + id() +
-            	", Nama='" + Nama + '\'' +
-           	 	", Keterangan='" + Keterangan + '\'' +
-           	 	'}';
+		return "FasilitasModel("
+				+ "id=" + id + ", "
+				+ "nama=" + nama + ", "
+				+ "keterangan=" + keterangan
+				+ ")";
 	}
 }

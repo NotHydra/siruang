@@ -5,11 +5,11 @@ import java.sql.Timestamp;
 import global.base.BaseModel;
 
 public class PenggunaModel extends BaseModel {
-    private final String camelCase;
-    private final String Username;
-    private final String Password;
-    private final boolean Aktif;
-    private final Level LevelEnum;
+    private final String nama;
+    private final String username;
+    private final String password;
+    private final boolean aktif;
+    private final Level levelEnum;
     private final Timestamp TanggalDibuat;
     private final Timestamp TanggalDiubah;
 
@@ -24,7 +24,7 @@ public class PenggunaModel extends BaseModel {
         this.LevelEnum = LevelEnum; 
     }
 
-    public PenggunaModel(String CamelCase, String Username, String Password, boolean Aktif, Level LevelEnum) {
+    public PenggunaModel(String Cam, String Username, String Password, boolean Aktif, Level LevelEnum) {
         super(id);
 
         validate(camelCase, Username, Password, Aktif, LevelEnum);
@@ -37,15 +37,15 @@ public class PenggunaModel extends BaseModel {
 
     private void validate(String camelCase, String Username, String password) {
         if (camelCase == null || camelCase.trim().isEmpty()) {
-            throw new IllegalArgumentException("Nama cannot be empty");
+            throw new IllegalArgumentException("Name cannot be empty");
         }
 
         if (Username == null || Username.trim().isEmpty()) {
-            throw new IllegalArgumentException("Username cannot be empty");
+            throw new IllegalArgumentException("Name cannot be empty");
         }
 
         if (Password == null || Password.trim().isEmpty()) {
-            throw new IllegalArgumentException("Password cannot be empty");
+            throw new IllegalArgumentException("Name cannot be empty");
         }
     }
 
@@ -72,10 +72,9 @@ public class PenggunaModel extends BaseModel {
     @Override
     public String toString() {
         return "PenggunaModel("
-                + "id=" + id() +
-            	", camelCase='" + camelCase + '\'' +
-           	 	", Username='" + Username + '\'' +
-                ", Password='" + Password + '\'' +
-           	 	'}';
+                + "id=" + id() + ", "
+                + "name=" + this.name + ", "
+                + "idBook=" + this.idBook
+                + ")";
     }
 }

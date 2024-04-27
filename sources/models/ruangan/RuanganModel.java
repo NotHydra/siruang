@@ -35,13 +35,13 @@ public class RuanganModel {
 
 	private void validate(String Nama, String Deskirpsi, int Kapasitas) {
 		if (Nama == null ||  Nama.trim().isEmpty()) { 
-			throw new IllegalArgumentException("Nama Ruangan cannot be empty");
+			throw new IllegalArgumentException("Nama tidak boleh kosong");
 		}
 		if (Deskirpsi == null ||  Deskirpsi.trim().isEmpty()) { 
-			throw new IllegalArgumentException("Deskripsi Ruangan cannot be empty");
+			throw new IllegalArgumentException("Deskripsi tidak boleh kosong");
 		}
 		if (Kapasitas == 0 ||  Kapasitas == 0) { 
-			throw new IllegalArgumentException("Kapasitas Ruangan cannot be empty");
+			throw new IllegalArgumentException("Kapasitas tidak boleh kosong");
 		}
 		
 	}

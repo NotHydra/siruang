@@ -18,7 +18,7 @@ public class Model extends BaseModel {
 		this.keterangan = keterangan;
 	}
 
-	public Model(int id, String nama, String keterangan, Timestamp tanggalDibuat, Timestamp tanggalDiubah) {
+	public Model(int id, String nama, String keterangan) {
 		super(id);
 
 		validate(id, nama, keterangan, tanggalDibuat, tanggalDiubah);

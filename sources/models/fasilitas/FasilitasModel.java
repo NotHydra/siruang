@@ -1,10 +1,11 @@
-package models;
+package models.fasilitas;
 
-import global.base.BaseModel;
+
 import java.sql.Timestamp;
 
-public class FasilitasModel extends BaseModel {
+import global.base.BaseModel;
 
+public class FasilitasModel extends BaseModel {
 	private final String nama;
 	private final String keterangan;
 	private final Timestamp dibuat;
@@ -25,7 +26,7 @@ public class FasilitasModel extends BaseModel {
 	public FasilitasModel(int id, String nama, String keterangan, Timestamp dibuat, Timestamp diubah) {
 		super(id);
 
-		validate(id, nama, keterangan, dibuat, diubah);
+		validate(nama, keterangan);
 
 		this.nama = nama;
 		this.keterangan = keterangan;
@@ -34,7 +35,7 @@ public class FasilitasModel extends BaseModel {
 	}
 
 	private void validate(String nama, String keterangan) {
-		if (nama == null ||  nama.trim().isEmpty()) { 
+		if (nama == null || nama.trim().isEmpty()) {
 			throw new IllegalArgumentException("Nama tidak boleh kosong");
 		}
 

@@ -1,45 +1,56 @@
 package models.pengguna;
-import java.util.logging.Level;
-import java.sql.Time;
+
+
 import java.sql.Timestamp;
+
+import enums.LevelEnum;
+
 import global.base.BaseModel;
 
 public class PenggunaModel extends BaseModel {
-    private final String namaPengguna;
+    private final String nama;
     private final String username;
     private final String password;
     private final boolean aktif;
-    private final Level levelEnum;
-    private final Timestamp tanggalDibuat;
-    private final Timestamp tanggalDiubah;
+    private final LevelEnum level;
+    private final Timestamp dibuat;
+    private final Timestamp diubah;
 
-    public PenggunaModel(int id, String namaPengguna, String username, String password, boolean aktif, Level levelEnum, Timestamp tanggalDibuat, Timestamp tanggalDiubah) {
+    public PenggunaModel(String nama, String username, String password, boolean aktif, LevelEnum level) {
         super(-1);
 
-        validate(namaPengguna, username, password, aktif, levelEnum);
+        validate(nama, username, password);
 
-        this.namaPengguna = namaPengguna;
+        this.nama = nama;
+        this.username = username;
         this.password = password;
         this.aktif = aktif;
-        this.levelEnum = levelEnum; 
+        this.level = level;
+        this.dibuat = null;
+        this.diubah = null;
     }
 
-    public PenggunaModel(String namaPengguna, String username, String password) {
+    public PenggunaModel(int id, String nama, String username, String password, boolean aktif, LevelEnum level, Timestamp dibuat, Timestamp diubah) {
         super(id);
 
-        validate(namaPengguna, username, password, aktif, levelEnum);
+        validate(nama, username, password);
 
-        this.namaPengguna = namaPengguna;
+        this.nama = nama;
+        this.username = username;
         this.password = password;
+        this.aktif = aktif;
+        this.level = level;
+        this.dibuat = dibuat;
+        this.diubah = diubah;
     }
 
-    private void validate(String namaPengguna, String username, String password) {
-        if (namaPengguna == null || namaPengguna.trim().isEmpty()) {
-            throw new IllegalArgumentException("Nama Pengguna tidak boleh kosong!");
+    private void validate(String nama, String username, String password) {
+        if (nama == null || nama.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nama Pengguna tidak boleh kosong");
         }
 
         if (username == null || username.trim().isEmpty()) {
-            throw new IllegalArgumentException("Username tidak boleh kosong!");
+            throw new IllegalArgumentException("Username tidak boleh kosong");
         }
 
         if (password == null || password.trim().isEmpty()) {
@@ -47,32 +58,37 @@ public class PenggunaModel extends BaseModel {
         }
     }
 
-    public String namaPengguna() {
-        return this.namaPengguna;
+    public String getNama() {
+        return this.nama;
     }
 
-    public Timestamp gettanggaldibuat() {
-        return this.tanggalDibuat;
-    }
-
-    public Timestamp gettanggaldiubah() {
-        return this.tanggalDiubah;
-    }
-
-    public int getusername() {
+    public String getUsername() {
         return this.username;
     }
 
-    public String getpassword() {
+    public String getPassword() {
         return this.password;
-    
     }
+
+    public Timestamp getDibuat() {
+        return this.dibuat;
+    }
+
+    public Timestamp getDiubah() {
+        return this.diubah;
+    }
+
     @Override
     public String toString() {
         return "PenggunaModel("
                 + "id=" + this.id + ", "
-                + "namaPengguna=" + this.namaPengguna + ", "
-                + "password=" + this.password
+                + "nama=" + this.nama + ", "
+                + "username=" + this.username + ", "
+                + "password=" + this.password + ", "
+                + "aktif=" + this.aktif + ", "
+                + "level=" + this.level + ", "
+                + "dibuat=" + this.dibuat + ", "
+                + "diubah=" + this.diubah
                 + ")";
     }
 }

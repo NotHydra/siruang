@@ -4,6 +4,7 @@ import global.base.BaseModel;
 import java.sql.Timestamp;
 
 public class Model extends BaseModel {
+
 	private final String nama;
 	private final String keterangan;
 	private final Timestamp dibuat;
@@ -24,12 +25,12 @@ public class Model extends BaseModel {
 	public Model(int id, String nama, String keterangan) {
 		super(id);
 
-		validate(id, nama, keterangan, tanggalDibuat, tanggalDiubah);
+		validate(id, nama, keterangan, dibuat, diubah);
 
 		this.nama = nama;
 		this.keterangan = keterangan;
-		this.tanggalDibuat = tanggalDibuat;
-		this.tanggalDiubah = tanggalDiubah;
+		this.dibuat = dibuat;
+		this.diubah = diubah;
 	}
 
 	private void validate(String nama, String keterangan) {
@@ -37,7 +38,7 @@ public class Model extends BaseModel {
 			throw new IllegalArgumentException("Nama tidak boleh kosong");
 		}
 
-		if (keterangan == null || keterangan.trim().isEmpty()) {
+		if (keterangan == null || keterangan.trim()isEmpty()) {
 			throw new IllegalArgumentException("Keterangan tidak boleh kosong");
 		}
 	}
@@ -50,12 +51,12 @@ public class Model extends BaseModel {
 		return this.keterangan;
 	}
 
-	public Timestamp gettanggalDibuat() {
-		return this.tanggalDibuat;
+	public Timestamp getdibuat() {
+		return this.dibuat;
 	}
 
-	public Timestamp gettanggalDiubah() {
-		return this.tanggalDiubah;
+	public Timestamp getdiubah() {
+		return this.diubah;
 	}
 
 	@Override

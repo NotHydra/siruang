@@ -10,7 +10,7 @@ public class FasilitasModel extends BaseModel {
 	private final Timestamp dibuat;
 	private final Timestamp diubah;
 
-	public Model(String nama, String keterangan) {
+	public FasilitasModel(String nama, String keterangan) {
 		super(-1);
 
 		validate(nama, keterangan);
@@ -22,7 +22,7 @@ public class FasilitasModel extends BaseModel {
 
 	}
 
-	public Model(int id, String nama, String keterangan, Timestamp dibuat, Timestamp diubah) {
+	public FasilitasModel(int id, String nama, String keterangan, Timestamp dibuat, Timestamp diubah) {
 		super(id);
 
 		validate(id, nama, keterangan, dibuat, diubah);

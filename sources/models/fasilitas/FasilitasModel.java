@@ -1,7 +1,7 @@
 package models.fasilitas;
 
-
 import global.base.BaseModel;
+import java.sql.Timestamp;
 
 public class FasilitasModel extends BaseModel {
 	private final String namaFasilitas;
@@ -30,11 +30,11 @@ public class FasilitasModel extends BaseModel {
 
 	private void validate(String namaFasilitas, String keteranganFasilitas) {
 		if (namaFasilitas == null ||  namaFasilitas.trim().isEmpty()) { 
-			throw new IllegalArgumentException("nama tidak boleh kosong");
+			throw new IllegalArgumentException("Nama tidak boleh kosong");
 		}
 
 		if (keteranganFasilitas == null || keteranganFasilitas.trim()isEmpty()) {
-			throw new IllegalArgumentException("keterangan tidak boleh kosong");
+			throw new IllegalArgumentException("Keterangan tidak boleh kosong");
 		}
 	}
 

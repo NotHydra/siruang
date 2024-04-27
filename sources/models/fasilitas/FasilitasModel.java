@@ -6,8 +6,8 @@ import java.sql.Timestamp;
 public class Model extends BaseModel {
 	private final String nama;
 	private final String keterangan;
-	private final Timestamp tanggalDibuat;
-	private final Timestamp tanggalDiubah;
+	private final Timestamp dibuat;
+	private final Timestamp diubah;
 
 	public Model(String nama, String keterangan) {
 		super(-1);

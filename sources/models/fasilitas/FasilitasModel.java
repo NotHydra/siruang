@@ -43,19 +43,19 @@ public class Model extends BaseModel {
 		}
 	}
 
-	public String getnama() {
+	public String getNama() {
 		return this.nama;
 	}
 
-	public String getketerangan() {
+	public String getKeterangan() {
 		return this.keterangan;
 	}
 
-	public Timestamp getdibuat() {
+	public Timestamp getDibuat() {
 		return this.dibuat;
 	}
 
-	public Timestamp getdiubah() {
+	public Timestamp getDiubah() {
 		return this.diubah;
 	}
 

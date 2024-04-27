@@ -22,7 +22,7 @@ public class Model extends BaseModel {
 
 	}
 
-	public Model(int id, String nama, String keterangan) {
+	public Model(int id, String nama, String keterangan, Timestamp dibuat, Timestamp diubah) {
 		super(id);
 
 		validate(id, nama, keterangan, dibuat, diubah);

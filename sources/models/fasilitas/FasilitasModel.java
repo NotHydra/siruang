@@ -4,62 +4,62 @@ package models.fasilitas;
 import global.base.BaseModel;
 
 public class FasilitasModel extends BaseModel {
-	private final String NamaFasilitas;
-	private final String KeteranganFasilitas;
-	private final Timestamp TanggalDibuat;
-	private final Timestamp TanggalDiubah;
+	private final String namaFasilitas;
+	private final String keteranganFasilitas;
+	private final Timestamp tanggalDibuat;
+	private final Timestamp tanggalDiubah;
 
-	public FasilitasModel(String NamaFasilitas, String KeteranganFasilitas) {
+	public FasilitasModel(String namaFasilitas, String keteranganFasilitas) {
 
-		validate(NamaFasilitas, KeteranganFasilitas);
+		validate(namaFasilitas, keteranganFasilitas);
 
-		this.NamaFasilitas = NamaFasilitas;
-		this.KeteranganFasilitas = KeteranganFasilitas;
+		this.namaFasilitas = namaFasilitas;
+		this.keteranganFasilitas = keteranganFasilitas;
 	}
 
-	public FasilitasModel(int id, String NamaFasilitas, String KeteranganFasilitas, Timestamp TanggalDibuat, Timestamp TanggalDiubah) {
+	public FasilitasModel(int id, String namaFasilitas, String keteranganFasilitas, Timestamp tanggalDibuat, Timestamp tanggalDiubah) {
 		super(id);
 
-		validate(id, NamaFasilitas, KeteranganFasilitas, TanggalDibuat, TanggalDiubah);
+		validate(id, namaFasilitas, keteranganFasilitas, tanggalDibuat, tanggalDiubah);
 
-		this.NamaFasilitas = NamaFasilitas;
-		this.KeteranganFasilitas = KeteranganFasilitas;
-		this.TanggalDibuat = TanggalDibuat;
-		this.TanggalDiubah = TanggalDiubah;
+		this.namaFasilitas = namaFasilitas;
+		this.keteranganFasilitas = keteranganFasilitas;
+		this.tanggalDibuat = tanggalDibuat;
+		this.tanggalDiubah = tanggalDiubah;
 	}
 
-	private void validate(String NamaFasilitas, String KeteranganFasilitas) {
-		if (NamaFasilitas == null ||  NamaFasilitas.trim().isEmpty()) { 
-			throw new IllegalArgumentException("Nama tidak boleh kosong");
+	private void validate(String namaFasilitas, String keteranganFasilitas) {
+		if (namaFasilitas == null ||  namaFasilitas.trim().isEmpty()) { 
+			throw new IllegalArgumentException("nama tidak boleh kosong");
 		}
 
-		if (KeteranganFasilitas == null || KeteranganFasilitas.trim()isEmpty()) {
-			throw new IllegalArgumentException("Keterangan tidak boleh kosong");
+		if (keteranganFasilitas == null || keteranganFasilitas.trim()isEmpty()) {
+			throw new IllegalArgumentException("keterangan tidak boleh kosong");
 		}
 	}
 
-	public String get.NamaFasilitas() {
-		return this.NamaFasilitas;
+	public String get.namaFasilitas() {
+		return this.namaFasilitas;
 	}
 
-	public String get.KeteranganFasilitas() {
-		return this.KeteranganFasilitas;
+	public String get.keteranganFasilitas() {
+		return this.keteranganFasilitas;
 	}
 
-	public Timestamp get.TanggalDibuat() {
-		return this.TanggalDibuat;
+	public Timestamp get.tanggalDibuat() {
+		return this.tanggalDibuat;
 	}
 
-	public Timestamp get.TanggalDiubah() {
-		return this.TanggalDiubah;
+	public Timestamp get.tanggalDiubah() {
+		return this.tanggalDiubah;
 	}
 
 	@Override
 	public String toString() {
 		return "FasilitasModel("
 				+ "id=" + this.id() + ", "
-				+ "NamaFasilitas=" + this.NamaFasilitas + ", "
-				+ "KeteranganFasilitas=" + this.KeteranganFasilitas
+				+ "namaFasilitas=" + this.namaFasilitas + ", "
+				+ "keteranganFasilitas=" + this.keteranganFasilitas
 				+ ")";
 	}
 }

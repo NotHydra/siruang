@@ -1,50 +1,50 @@
-package models.fasilitas;
+package models.;
 
 import global.base.BaseModel;
 import java.sql.Timestamp;
 
-public class FasilitasModel extends BaseModel {
-	private final String namaFasilitas;
-	private final String keteranganFasilitas;
+public class Model extends BaseModel {
+	private final String nama;
+	private final String keterangan;
 	private final Timestamp tanggalDibuat;
 	private final Timestamp tanggalDiubah;
 
-	public FasilitasModel(String namaFasilitas, String keteranganFasilitas) {
+	public Model(String nama, String keterangan) {
 		super(-1);
 
-		validate(namaFasilitas, keteranganFasilitas);
+		validate(nama, keterangan);
 
-		this.namaFasilitas = namaFasilitas;
-		this.keteranganFasilitas = keteranganFasilitas;
+		this.nama = nama;
+		this.keterangan = keterangan;
 	}
 
-	public FasilitasModel(int id, String namaFasilitas, String keteranganFasilitas, Timestamp tanggalDibuat, Timestamp tanggalDiubah) {
+	public Model(int id, String nama, String keterangan, Timestamp tanggalDibuat, Timestamp tanggalDiubah) {
 		super(id);
 
-		validate(id, namaFasilitas, keteranganFasilitas, tanggalDibuat, tanggalDiubah);
+		validate(id, nama, keterangan, tanggalDibuat, tanggalDiubah);
 
-		this.namaFasilitas = namaFasilitas;
-		this.keteranganFasilitas = keteranganFasilitas;
+		this.nama = nama;
+		this.keterangan = keterangan;
 		this.tanggalDibuat = tanggalDibuat;
 		this.tanggalDiubah = tanggalDiubah;
 	}
 
-	private void validate(String namaFasilitas, String keteranganFasilitas) {
-		if (namaFasilitas == null ||  namaFasilitas.trim().isEmpty()) { 
+	private void validate(String nama, String keterangan) {
+		if (nama == null ||  nama.trim().isEmpty()) { 
 			throw new IllegalArgumentException("Nama tidak boleh kosong");
 		}
 
-		if (keteranganFasilitas == null || keteranganFasilitas.trim()isEmpty()) {
+		if (keterangan == null || keterangan.trim()isEmpty()) {
 			throw new IllegalArgumentException("Keterangan tidak boleh kosong");
 		}
 	}
 
-	public String getnamaFasilitas() {
-		return this.namaFasilitas;
+	public String getnama() {
+		return this.nama;
 	}
 
-	public String getketeranganFasilitas() {
-		return this.keteranganFasilitas;
+	public String getketerangan() {
+		return this.keterangan;
 	}
 
 	public Timestamp gettanggalDibuat() {
@@ -57,10 +57,10 @@ public class FasilitasModel extends BaseModel {
 
 	@Override
 	public String toString() {
-		return "FasilitasModel("
+		return "Model("
 				+ "id=" + id + ", "
-				+ "namaFasilitas=" + namaFasilitas + ", "
-				+ "keteranganFasilitas=" + keteranganFasilitas
+				+ "nama=" + nama + ", "
+				+ "keterangan=" + keterangan
 				+ ")";
 	}
 }

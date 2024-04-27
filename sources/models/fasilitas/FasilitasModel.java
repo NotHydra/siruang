@@ -38,7 +38,7 @@ public class Model extends BaseModel {
 			throw new IllegalArgumentException("Nama tidak boleh kosong");
 		}
 
-		if (keterangan == null || keterangan.trim()isEmpty()) {
+		if (keterangan == null || keterangan.trim().isEmpty()) {
 			throw new IllegalArgumentException("Keterangan tidak boleh kosong");
 		}
 	}

@@ -5,76 +5,74 @@ import java.sql.Timestamp;
 import global.base.BaseModel;
 
 public class PenggunaModel extends BaseModel {
-    private final String nama;
+    private final String namaPengguna;
     private final String username;
     private final String password;
     private final boolean aktif;
     private final Level levelEnum;
-    private final Timestamp TanggalDibuat;
-    private final Timestamp TanggalDiubah;
+    private final Timestamp tanggalDibuat;
+    private final Timestamp tanggalDiubah;
 
-    public PenggunaModel(int id, String Nama, String Username, String Password, boolean Aktif, Level LevelEnum, Timestamp Dibuat, Timestamp Diubah) {
+    public PenggunaModel(int id, String namaPengguna, String username, String password, boolean aktif, Level levelEnum, Timestamp tanggalDibuat, Timestamp tanggalDiubah) {
         super(-1);
 
-        validate(camelCase, Username, Password, Aktif, LevelEnum);
+        validate(namaPengguna, username, password, aktif, levelEnum);
 
-        this.camelCase = camelCase;
-        this.Password = Password;
-        this.Aktif = Aktif;
-        this.LevelEnum = LevelEnum; 
+        this.namaPengguna = namaPengguna;
+        this.password = password;
+        this.aktif = aktif;
+        this.levelEnum = levelEnum; 
     }
 
-    public PenggunaModel(String Cam, String Username, String Password, boolean Aktif, Level LevelEnum) {
+    public PenggunaModel(String namaPengguna, String username, String password) {
         super(id);
 
-        validate(camelCase, Username, Password, Aktif, LevelEnum);
+        validate(namaPengguna, username, password, aktif, levelEnum);
 
-        this.camelCase = camelCase;
-        this.Password = Password;
-        this.Aktif = Aktif;
-        this.LevelEnum = LevelEnum;
+        this.namaPengguna = namaPengguna;
+        this.password = password;
     }
 
-    private void validate(String camelCase, String Username, String password) {
-        if (camelCase == null || camelCase.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
+    private void validate(String namaPengguna, String username, String password) {
+        if (namaPengguna == null || namaPengguna.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nama Pengguna tidak boleh kosong!");
         }
 
-        if (Username == null || Username.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
+        if (username == null || username.trim().isEmpty()) {
+            throw new IllegalArgumentException("Username tidak boleh kosong!");
         }
 
-        if (Password == null || Password.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
+        if (password == null || password.trim().isEmpty()) {
+            throw new IllegalArgumentException("Password tidak boleh kosong");
         }
     }
 
-    public String getcamelCase() {
-        return this.camelCase;
+    public String namaPengguna() {
+        return this.namaPengguna;
     }
 
-    public Timestamp getTanggaldibuat() {
-        return this.TanggalDibuat;
+    public Timestamp gettanggaldibuat() {
+        return this.tanggalDibuat;
     }
 
-    public Timestamp getTanggaldiubah() {
-        return this.TanggalDiubah;
+    public Timestamp gettanggaldiubah() {
+        return this.tanggalDiubah;
     }
 
-    public int getUsername() {
-        return this.Username;
+    public int getusername() {
+        return this.username;
     }
 
-    public String getPassword() {
-        return this.Password;
+    public String getpassword() {
+        return this.password;
     
     }
     @Override
     public String toString() {
         return "PenggunaModel("
-                + "id=" + id() + ", "
-                + "name=" + this.name + ", "
-                + "idBook=" + this.idBook
+                + "id=" + this.id + ", "
+                + "namaPengguna=" + this.namaPengguna + ", "
+                + "password=" + this.password
                 + ")";
     }
 }

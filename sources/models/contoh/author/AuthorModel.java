@@ -1,4 +1,4 @@
-package models.contoh;
+package models.contoh.author;
 
 
 import global.base.BaseModel;

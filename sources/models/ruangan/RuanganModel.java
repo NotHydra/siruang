@@ -1,77 +1,86 @@
 package models.ruangan;
 
+
 import java.sql.Timestamp;
+
 import global.base.BaseModel;
 
-public class RuanganModel {
+public class RuanganModel extends BaseModel {
 	private final String nama;
-	private final String deskirpsi;
+	private final String deskripsi;
 	private final int kapasitas;
 	private final Timestamp dibuat;
 	private final Timestamp diubah;
-	
-	public RuanganModel(String nama, String deskirpsi, int kapasitas) {
+
+	public RuanganModel(String nama, String deskripsi, int kapasitas) {
 		super(-1);
-		validate(nama, deskirpsi, kapasitas);
-		
+
+		validate(nama, deskripsi, kapasitas);
+
 		this.nama = nama;
-		this.deskirpsi = deskirpsi;
+		this.deskripsi = deskripsi;
 		this.kapasitas = kapasitas;
 		this.dibuat = null;
 		this.diubah = null;
 	}
-	
-	public RuanganModel(int id, String nama, String deskirpsi,int kapasitas,  Timestamp dibuat, Timestamp diubah) {
+
+	public RuanganModel(int id, String nama, String deskripsi, int kapasitas, Timestamp dibuat, Timestamp diubah) {
 		super(id);
 
-		validate(id, nama, deskirpsi, kapasitas, dibuat, diubah);
+		validate(nama, deskripsi, kapasitas);
 
 		this.nama = nama;
-		this.deskirpsi = deskirpsi;
+		this.deskripsi = deskripsi;
+		this.kapasitas = kapasitas;
 		this.dibuat = dibuat;
 		this.diubah = diubah;
 	}
 
-
-	private void validate(String nama, String deskirpsi, int kapasitas) {
-		if (nama == null ||  nama.trim().isEmpty()) { 
+	private void validate(String nama, String deskripsi, int kapasitas) {
+		if (nama == null || nama.trim().isEmpty()) {
 			throw new IllegalArgumentException("Nama tidak boleh kosong");
 		}
-		if (deskirpsi == null ||  deskirpsi.trim().isEmpty()) { 
+
+		if (deskripsi == null || deskripsi.trim().isEmpty()) {
 			throw new IllegalArgumentException("Deskripsi tidak boleh kosong");
 		}
-		if (kapasitas == 0 ||  kapasitas == 0) { 
-			throw new IllegalArgumentException("Kapasitas tidak boleh kosong");
+
+		if (kapasitas <= 0) {
+			throw new IllegalArgumentException("Kapasitas harus lebih dari 0");
 		}
-		
+
 	}
 
-	public String getnama() {
+	public String getNama() {
 		return this.nama;
 	}
+
 	public String getDeskripsi() {
-		return this.deskirpsi;
+		return this.deskripsi;
 	}
+
 	public int getKapasitas() {
 		return this.kapasitas;
 	}
-	public Timestamp getTanggalDibuat() {
+
+	public Timestamp getDibuat() {
 		return this.dibuat;
 	}
 
-	public Timestamp getTanggalDiubah() {
+	public Timestamp getDiubah() {
 		return this.diubah;
 	}
 
 	@Override
 	public String toString() {
-    	return "FasilitasModel{" +
-            	"id=" + id() +
-            	", Nama='" + Nama + '\'' +
-           	 	", Deskripsi='" + Deskirpsi + '\'' +
-           	 	", Kapasitas='" + Kapasitas + '\'' +
-           	 	'}';
+		return "RuanganModel("
+				+ "id=" + this.id + ", "
+				+ "nama=" + this.nama + ", "
+				+ "deskripsi=" + this.deskripsi + ", "
+				+ "kapasitas=" + this.kapasitas + ", "
+				+ "dibuat=" + this.dibuat + ", "
+				+ "diubah=" + this.diubah
+				+ ")";
 	}
 
 }
-

@@ -1,4 +1,4 @@
-package models.contoh;
+package models.contoh.book;
 
 
 import global.base.BaseModel;

@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-        <mxGraphModel dx="1021" dy="544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="852" dy="934" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="WIyWlLk6GJQsqaUBKTNV-0"/>
                 <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0"/>
@@ -187,10 +187,10 @@
                 <mxCell id="y8Ipn1bmmNUjSDNiTQX_-83" value="- namaPeminjam: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="y8Ipn1bmmNUjSDNiTQX_-80" vertex="1">
                     <mxGeometry y="78" width="1080" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="y8Ipn1bmmNUjSDNiTQX_-98" value="- waktuAwal: LocalDateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="y8Ipn1bmmNUjSDNiTQX_-80" vertex="1">
+                <mxCell id="y8Ipn1bmmNUjSDNiTQX_-98" value="- waktuMulai: LocalDateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="y8Ipn1bmmNUjSDNiTQX_-80" vertex="1">
                     <mxGeometry y="104" width="1080" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="y8Ipn1bmmNUjSDNiTQX_-100" value="- waktuAkhir: LocalDateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="y8Ipn1bmmNUjSDNiTQX_-80" vertex="1">
+                <mxCell id="y8Ipn1bmmNUjSDNiTQX_-100" value="- waktuSelesai: LocalDateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="y8Ipn1bmmNUjSDNiTQX_-80" vertex="1">
                     <mxGeometry y="130" width="1080" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="y8Ipn1bmmNUjSDNiTQX_-99" value="- keterangan: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="y8Ipn1bmmNUjSDNiTQX_-80" vertex="1">
@@ -322,7 +322,7 @@
                 <mxCell id="y8Ipn1bmmNUjSDNiTQX_-147" value="+ PenggunaModel(String nama, String username, String password, boolean aktif, LevelEnum level)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="y8Ipn1bmmNUjSDNiTQX_-140" vertex="1">
                     <mxGeometry y="242" width="800" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="y8Ipn1bmmNUjSDNiTQX_-148" value="- validate(String nama, String username, String password, boolean aktif, LevelEnum level): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="y8Ipn1bmmNUjSDNiTQX_-140" vertex="1">
+                <mxCell id="y8Ipn1bmmNUjSDNiTQX_-148" value="- validate(String nama, String username, String password): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="y8Ipn1bmmNUjSDNiTQX_-140" vertex="1">
                     <mxGeometry y="268" width="800" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="y8Ipn1bmmNUjSDNiTQX_-149" value="+ getNama(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="y8Ipn1bmmNUjSDNiTQX_-140" vertex="1">

@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:controller="models.fasilitas.FasilitasController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../public/css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../public/css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="models.fasilitas.FasilitasController">
    <left>
       <GridPane prefHeight="688.0" prefWidth="240.0" styleClass="sidebar" stylesheets="@../../public/css/style.css" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -60,7 +60,7 @@
                   <VBox prefHeight="465.0" prefWidth="240.0" styleClass="sidebar-menu" stylesheets="@../../public/css/style.css">
                      <children>
                         <Separator prefWidth="200.0" stylesheets="@../../public/css/style.css" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionPeminjaman" prefHeight="46.0" prefWidth="195.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Peminjaman">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buttonPeminjamanOnAction" prefHeight="46.0" prefWidth="195.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Peminjaman">
                            <graphic>
                               <FontAwesomeIconView glyphName="CALENDAR" size="20" styleClass="sidebar-menu-item-icon" />
                            </graphic>
@@ -71,7 +71,7 @@
                               <Insets bottom="8.0" top="8.0" />
                            </padding>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionRuangan" prefHeight="46.0" prefWidth="195.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Ruangan">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buttonRuanganOnAction" prefHeight="46.0" prefWidth="195.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Ruangan">
                            <graphic>
                               <FontAwesomeIconView glyphName="BUILDING" styleClass="sidebar-menu-item-icon" />
                            </graphic>
@@ -82,7 +82,7 @@
                               <Insets bottom="8.0" top="8.0" />
                            </padding>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionFasilitas" prefHeight="46.0" prefWidth="195.0" stylesheets="@../../public/css/style.css" text="Fasilitas">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buttonFasilitasOnAction" prefHeight="46.0" prefWidth="195.0" stylesheets="@../../public/css/style.css" text="Fasilitas">
                            <graphic>
                               <FontAwesomeIconView glyphName="DROPBOX" styleClass="sidebar-menu-item-icon" />
                            </graphic>
@@ -97,7 +97,7 @@
                               <String fx:value="sidebar-menu-item-active" />
                            </styleClass>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionPengguna" prefHeight="46.0" prefWidth="195.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Pengguna">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buttonPenggunaOnAction" prefHeight="46.0" prefWidth="195.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Pengguna">
                            <graphic>
                               <FontAwesomeIconView glyphName="GROUP" styleClass="sidebar-menu-item-icon" />
                            </graphic>
@@ -113,7 +113,7 @@
                   <VBox prefHeight="63.0" prefWidth="240.0" styleClass="sidebar-menu" stylesheets="@../../public/css/style.css" GridPane.rowIndex="1">
                      <children>
                         <Separator prefHeight="0.0" prefWidth="240.0" stylesheets="@../../public/css/style.css" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionLogout" prefHeight="53.0" prefWidth="240.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Logout">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buttonLogoutOnAction" prefHeight="53.0" prefWidth="240.0" styleClass="sidebar-menu-item" stylesheets="@../../public/css/style.css" text="Logout">
                            <graphic>
                               <FontAwesomeIconView glyphName="REPLY" styleClass="sidebar-menu-item-icon" />
                            </graphic>
@@ -297,7 +297,7 @@
                               <Insets bottom="12.0" left="20.0" right="12.0" top="20.0" />
                            </padding>
                         </Label>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionTambah" styleClass="content-body-action-button-success" stylesheets="@../../public/css/style.css" text="Tambah">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buttonTambahOnAction" styleClass="content-body-action-button-success" stylesheets="@../../public/css/style.css" text="Tambah">
                            <VBox.margin>
                               <Insets bottom="8.0" left="16.0" right="16.0" top="16.0" />
                            </VBox.margin>
@@ -305,7 +305,7 @@
                               <Insets bottom="8.0" left="12.0" right="12.0" top="8.0" />
                            </padding>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionUbah" styleClass="content-body-action-button-warning" stylesheets="@../../public/css/style.css" text="Ubah">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buttonUbahOnAction" styleClass="content-body-action-button-warning" stylesheets="@../../public/css/style.css" text="Ubah">
                            <padding>
                               <Insets bottom="8.0" left="12.0" right="12.0" top="8.0" />
                            </padding>
@@ -313,7 +313,7 @@
                               <Insets bottom="8.0" left="16.0" right="16.0" top="4.0" />
                            </VBox.margin>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionHapus" styleClass="content-body-action-button-danger" stylesheets="@../../public/css/style.css" text="Hapus">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buttonHapusOnAction" styleClass="content-body-action-button-danger" stylesheets="@../../public/css/style.css" text="Hapus">
                            <padding>
                               <Insets bottom="8.0" left="12.0" right="12.0" top="8.0" />
                            </padding>

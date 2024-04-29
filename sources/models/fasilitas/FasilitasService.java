@@ -52,7 +52,7 @@ public class FasilitasService
 			final ResultSet result = this.database.executeQuery(""
 					+ "SELECT "
 					+ "id, "
-					+ "name, "
+					+ "nama, "
 					+ "keterangan, "
 					+ "dibuat, "
 					+ "diubah "
@@ -65,7 +65,7 @@ public class FasilitasService
 			while (result.next()) {
 				models[i] = new FasilitasModel(
 						result.getInt("id"),
-						result.getString("name"),
+						result.getString("nama"),
 						result.getString("keterangan"),
 						result.getTimestamp("dibuat"),
 						result.getTimestamp("diubah"));
@@ -90,7 +90,7 @@ public class FasilitasService
 			final ResultSet result = this.database.executeQuery(""
 					+ "SELECT "
 					+ "id, "
-					+ "name, "
+					+ "nama, "
 					+ "keterangan, "
 					+ "dibuat, "
 					+ "diubah "
@@ -101,7 +101,7 @@ public class FasilitasService
 			if (result.next()) {
 				return new FasilitasModel(
 						result.getInt("id"),
-						result.getString("name"),
+						result.getString("nama"),
 						result.getString("keterangan"),
 						result.getTimestamp("dibuat"),
 						result.getTimestamp("diubah"));
@@ -143,7 +143,7 @@ public class FasilitasService
 					+ "UPDATE " + this.table + " SET "
 					+ "nama='" + model.getNama() + "', "
 					+ "keterangan='" + model.getKeterangan() + "' "
-					+ "WHERE"
+					+ "WHERE "
 					+ "id=" + id
 					+ ";");
 		}

@@ -4,6 +4,8 @@ package models.fasilitas;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,25 +15,42 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+import java.sql.Timestamp;
+
+import components.Modal;
+
+import providers.Logger;
+
 public class FasilitasController implements Initializable {
+	private final static Logger logger = new Logger(FasilitasController.class.getName());
+
+	private final static FasilitasService service = FasilitasService.getInstance();
+
+	private FasilitasModel selectedModel;
 
 	@FXML
 	private Label labelProfile;
 
 	@FXML
-	private TableView<?> tableMain;
+	private TableView<FasilitasModel> tableMain;
 
 	@FXML
-	private TableColumn<?, ?> tableMainColumnDibuat;
+	private TableColumn<FasilitasModel, String> tableMainColumnNama;
 
 	@FXML
-	private TableColumn<?, ?> tableMainColumnDiubah;
+	private TableColumn<FasilitasModel, String> tableMainColumnKeterangan;
 
 	@FXML
-	private TableColumn<?, ?> tableMainColumnKeterangan;
+	private TableColumn<FasilitasModel, String> tableMainColumnDibuat;
 
 	@FXML
-	private TableColumn<?, ?> tableMainColumnNama;
+	private TableColumn<FasilitasModel, String> tableMainColumnDiubah;
+
+	@FXML
+	private TextField textFieldNama;
+
+	@FXML
+	private TextField textFieldKeterangan;
 
 	@FXML
 	private TextField textFieldDibuat;
@@ -39,59 +58,134 @@ public class FasilitasController implements Initializable {
 	@FXML
 	private TextField textFieldDiubah;
 
-	@FXML
-	private TextField textFieldKeterangan;
-
-	@FXML
-	private TextField textFieldNama;
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		logger.debug("Initialize");
 
+		tableMainColumnNama.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getNama()));
+		tableMainColumnKeterangan.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getKeterangan()));
+		tableMainColumnDibuat.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getDibuat().toString()));
+		tableMainColumnDiubah.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getDiubah().toString()));
+
+		tableMain.setItems(FXCollections.observableArrayList(service.find()));
 	}
 
-	@FXML
-	void onActionFasilitas(ActionEvent event) {
+	public void tableReload() {
+		logger.debug("Table Reload");
 
-	}
-
-	@FXML
-	void onActionHapus(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onActionLogout(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onActionPeminjaman(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onActionPengguna(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onActionRuangan(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onActionTambah(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onActionUbah(ActionEvent event) {
-
+		tableMain.setItems(FXCollections.observableArrayList(service.find()));
 	}
 
 	@FXML
 	void tableMainItemClick(MouseEvent event) {
+		logger.debug("Table Main Item Click");
 
+		try {
+			this.selectedModel = tableMain.getSelectionModel().getSelectedItem();
+
+			textFieldNama.setText(this.selectedModel.getNama());
+			textFieldKeterangan.setText(this.selectedModel.getKeterangan());
+			textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
+			textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
+		}
+		catch (Exception e) {
+		}
+
+	}
+
+	@FXML
+	void buttonPeminjamanOnAction(ActionEvent event) {
+
+	}
+
+	@FXML
+	void buttonRuanganOnAction(ActionEvent event) {
+
+	}
+
+	@FXML
+	void buttonFasilitasOnAction(ActionEvent event) {
+
+	}
+
+	@FXML
+	void buttonPenggunaOnAction(ActionEvent event) {
+
+	}
+
+	@FXML
+	void buttonLogoutOnAction(ActionEvent event) {
+
+	}
+
+	@FXML
+	void buttonTambahOnAction(ActionEvent event) {
+		logger.debug("Button Tambah On Action");
+
+		if (Modal.getInstance().confirmation()) {
+			try {
+				service.add(new FasilitasModel(
+						textFieldNama.getText(),
+						textFieldKeterangan.getText()));
+
+				this.tableReload();
+			}
+			catch (Exception e) {
+				Modal.getInstance().fail(e.getMessage());
+
+				logger.error(e.getMessage());
+			}
+		}
+	}
+
+	@FXML
+	void buttonUbahOnAction(ActionEvent event) {
+		logger.debug("Button Ubah On Action");
+
+		if (this.selectedModel != null) {
+			if (Modal.getInstance().confirmation()) {
+				try {
+					service.change(
+							this.selectedModel.getId(),
+							new FasilitasModel(
+									textFieldNama.getText(),
+									textFieldKeterangan.getText()));
+
+					this.tableReload();
+				}
+				catch (Exception e) {
+					Modal.getInstance().fail(e.getMessage());
+
+					logger.error(e.getMessage());
+				}
+			}
+		}
+	}
+
+	@FXML
+	void buttonHapusOnAction(ActionEvent event) {
+		logger.debug("Button Hapus On Action");
+
+		if (this.selectedModel != null) {
+			if (Modal.getInstance().confirmation()) {
+				try {
+					service.remove(this.selectedModel.getId());
+
+					this.selectedModel = null;
+
+					textFieldNama.clear();
+					textFieldKeterangan.clear();
+					textFieldDibuat.clear();
+					textFieldDiubah.clear();
+
+					this.tableReload();
+				}
+				catch (Exception e) {
+					Modal.getInstance().fail(e.getMessage());
+
+					logger.error(e.getMessage());
+				}
+			}
+		}
 	}
 }

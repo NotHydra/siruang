@@ -5,20 +5,17 @@ import java.sql.Timestamp;
 
 import models.fasilitas.FasilitasModel;
 
-
-
 public class RuanganDetailedModel extends RuanganModel {
-	private final FasilitasModel[] fasilitas 	;
+	private final FasilitasModel[] fasilitas;
 
 	public RuanganDetailedModel(int id, String nama, String deskripsi, int kapasitas, FasilitasModel[] fasilitas, Timestamp dibuat, Timestamp diubah) {
-			super(id, nama, deskripsi, kapasitas, dibuat, diubah);
+		super(id, nama, deskripsi, kapasitas, dibuat, diubah);
 
-			this.fasilitas = fasilitas;
-
+		this.fasilitas = fasilitas;
 	}
 
 	public FasilitasModel[] getfasilitas() {
-			return this.fasilitas;
+		return this.fasilitas;
 
 	}
 
@@ -28,6 +25,7 @@ public class RuanganDetailedModel extends RuanganModel {
 				+ "id=" + this.getId() + ", "
 				+ "nama=" + this.getNama() + ", "
 				+ "deskripsi=" + this.getDeskripsi() + ", "
+				+ "kapasitas=" + this.getKapasitas() + ", "
 				+ "fasilitas=" + this.getfasilitas() + ", "
 				+ "dibuat=" + this.getDibuat() + ", "
 				+ "diubah=" + this.getDiubah()

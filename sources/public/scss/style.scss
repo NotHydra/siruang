@@ -131,7 +131,6 @@ $borderShadow: darken($mainColor, 12.5%);
 
             .content-body-item-subtitle {
                 -fx-text-fill: $textColorDark;
-                -fx-alignment: left;
 
                 -fx-font-family: $fontFamily;
                 -fx-font-size: 18px;
@@ -165,7 +164,6 @@ $borderShadow: darken($mainColor, 12.5%);
 
             .content-body-action-label {
                 -fx-text-fill: $textColorDark;
-                -fx-alignment: left;
 
                 -fx-font-family: $fontFamily;
                 -fx-font-size: 16px;
@@ -173,7 +171,6 @@ $borderShadow: darken($mainColor, 12.5%);
 
             .content-body-action-textfield {
                 -fx-text-fill: $textColorDark;
-                -fx-alignment: left;
 
                 -fx-font-family: $fontFamily;
                 -fx-font-size: 14px;

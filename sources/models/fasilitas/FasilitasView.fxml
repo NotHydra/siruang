@@ -186,11 +186,14 @@
                         </Label>
                         <TableView fx:id="tableMain" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onMouseClicked="#tableMainItemClick" prefHeight="515.0" styleClass="content-body-item-table" stylesheets="@../../public/css/style.css" VBox.vgrow="ALWAYS">
                           <columns>
-                            <TableColumn fx:id="tableMainColumnNama" prefWidth="143.19998779296873" styleClass="content-body-item-table-header" text="Nama" />
+                            <TableColumn fx:id="tableMainColumnNama" prefWidth="140.0" styleClass="content-body-item-table-header" text="Nama" />
                             <TableColumn fx:id="tableMainColumnKeterangan" minWidth="7.20001220703125" prefWidth="150.0" styleClass="content-body-item-table-header" text="Keterangan" />
-                              <TableColumn fx:id="tableMainColumnDibuat" minWidth="-Infinity" prefWidth="100.0" styleClass="content-body-item-table-header" text="Dibuat" />
-                              <TableColumn fx:id="tableMainColumnDiubah" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="100.0" styleClass="content-body-item-table-header" text="Diubah" />
+                              <TableColumn fx:id="tableMainColumnDibuat" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="125.0" resizable="false" sortType="DESCENDING" styleClass="content-body-item-table-header" text="Dibuat" />
+                              <TableColumn fx:id="tableMainColumnDiubah" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="125.0" resizable="false" sortType="DESCENDING" styleClass="content-body-item-table-header" text="Diubah" />
                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
                         </TableView>
                      </children>
                   </VBox>

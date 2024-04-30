@@ -16,6 +16,6 @@ public enum StatusEnum {
 			}
 		}
 
-		throw new IllegalArgumentException("Nilai status tidak valid");
+		throw new IllegalArgumentException("Status tidak valid");
 	}
 }

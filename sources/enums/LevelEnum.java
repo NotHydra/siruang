@@ -16,6 +16,6 @@ public enum LevelEnum {
 			}
 		}
 
-		throw new IllegalArgumentException("Nilai level tidak valid");
+		throw new IllegalArgumentException("Level tidak valid");
 	}
 }

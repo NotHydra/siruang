@@ -21,6 +21,7 @@ import java.sql.Timestamp;
 import components.Modal;
 
 import providers.Logger;
+import providers.View;
 
 public class FasilitasController implements Initializable {
 	private final static Logger logger = new Logger(FasilitasController.class.getName());
@@ -106,7 +107,7 @@ public class FasilitasController implements Initializable {
 
 	@FXML
 	void buttonFasilitasOnAction(ActionEvent event) {
-
+		View.getInstance().set("fasilitas");
 	}
 
 	@FXML

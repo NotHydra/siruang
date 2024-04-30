@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -50,7 +51,7 @@ public class FasilitasController implements Initializable {
 	private TextField textFieldNama;
 
 	@FXML
-	private TextField textFieldKeterangan;
+	private TextArea textAreaKeterangan;
 
 	@FXML
 	private TextField textFieldDibuat;
@@ -84,7 +85,7 @@ public class FasilitasController implements Initializable {
 			this.selectedModel = tableMain.getSelectionModel().getSelectedItem();
 
 			textFieldNama.setText(this.selectedModel.getNama());
-			textFieldKeterangan.setText(this.selectedModel.getKeterangan());
+			textAreaKeterangan.setText(this.selectedModel.getKeterangan());
 			textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
 			textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
 		}
@@ -126,7 +127,7 @@ public class FasilitasController implements Initializable {
 			try {
 				service.add(new FasilitasModel(
 						textFieldNama.getText(),
-						textFieldKeterangan.getText()));
+						textAreaKeterangan.getText()));
 
 				this.tableReload();
 			}
@@ -149,7 +150,7 @@ public class FasilitasController implements Initializable {
 							this.selectedModel.getId(),
 							new FasilitasModel(
 									textFieldNama.getText(),
-									textFieldKeterangan.getText()));
+									textAreaKeterangan.getText()));
 
 					this.tableReload();
 				}
@@ -174,7 +175,7 @@ public class FasilitasController implements Initializable {
 					this.selectedModel = null;
 
 					textFieldNama.clear();
-					textFieldKeterangan.clear();
+					textAreaKeterangan.clear();
 					textFieldDibuat.clear();
 					textFieldDiubah.clear();
 

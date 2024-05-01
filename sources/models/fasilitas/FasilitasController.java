@@ -16,8 +16,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-import java.sql.Timestamp;
-
 import components.Modal;
 
 import providers.Logger;

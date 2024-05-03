@@ -34,9 +34,16 @@ public class Dependency {
                     throw new IllegalArgumentException("Database username cannot be empty");
                 }
 
+<<<<<<< HEAD
                 if (Dependency.instance.databasePassword == null || Dependency.instance.databasePassword.trim().isEmpty()) {
                     throw new IllegalArgumentException("Database password cannot be empty");
                 }
+=======
+                // if (Dependency.instance.databasePassword == null ||
+                // Dependency.instance.databasePassword.trim().isEmpty()) {
+                // throw new IllegalArgumentException("Database password cannot be empty");
+                // }
+>>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
 
             }
             catch (IllegalArgumentException e) {

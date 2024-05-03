@@ -113,9 +113,7 @@ public class FasilitasController implements Initializable {
 	void tableMainItemClick(MouseEvent event) {
 		logger.debug("Table Main Item Click");
 
-		try
-
-		{
+		try {
 			this.selectedModel = tableMain.getSelectionModel().getSelectedItem();
 
 			textFieldNama.setText(this.selectedModel.getNama());
@@ -138,6 +136,14 @@ public class FasilitasController implements Initializable {
 						textAreaKeterangan.getText()));
 
 				this.tableReload();
+
+				tableMain.getSelectionModel().select(tableMain.getItems().size() - 1);
+				this.selectedModel = tableMain.getItems().get(tableMain.getItems().size() - 1);
+
+				textFieldNama.setText(this.selectedModel.getNama());
+				textAreaKeterangan.setText(this.selectedModel.getKeterangan());
+				textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
+				textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
 			}
 			catch (Exception e) {
 				Modal.getInstance().fail(e.getMessage());
@@ -160,7 +166,17 @@ public class FasilitasController implements Initializable {
 									textFieldNama.getText(),
 									textAreaKeterangan.getText()));
 
+					final int selectedIndex = tableMain.getSelectionModel().getSelectedIndex();
+
 					this.tableReload();
+
+					tableMain.getSelectionModel().select(selectedIndex);
+					this.selectedModel = tableMain.getItems().get(selectedIndex);
+
+					textFieldNama.setText(this.selectedModel.getNama());
+					textAreaKeterangan.setText(this.selectedModel.getKeterangan());
+					textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
+					textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());

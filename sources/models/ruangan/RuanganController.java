@@ -189,6 +189,15 @@ public class RuanganController implements Initializable {
 						Integer.parseInt(textFieldKapasitas.getText())));
 
 				this.tableReload();
+
+				tableMain.getSelectionModel().select(tableMain.getItems().size() - 1);
+				this.selectedModel = tableMain.getItems().get(tableMain.getItems().size() - 1);
+
+				textFieldNama.setText(this.selectedModel.getNama());
+				textAreaDeskripsi.setText(this.selectedModel.getDeskripsi());
+				textFieldKapasitas.setText(Integer.toString(this.selectedModel.getKapasitas()));
+				textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
+				textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
 			}
 			catch (Exception e) {
 				Modal.getInstance().fail(e.getMessage());
@@ -212,7 +221,18 @@ public class RuanganController implements Initializable {
 									textAreaDeskripsi.getText(),
 									Integer.parseInt(textFieldKapasitas.getText())));
 
+					final int selectedIndex = tableMain.getSelectionModel().getSelectedIndex();
+
 					this.tableReload();
+
+					tableMain.getSelectionModel().select(selectedIndex);
+					this.selectedModel = tableMain.getItems().get(selectedIndex);
+
+					textFieldNama.setText(this.selectedModel.getNama());
+					textAreaDeskripsi.setText(this.selectedModel.getDeskripsi());
+					textFieldKapasitas.setText(Integer.toString(this.selectedModel.getKapasitas()));
+					textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
+					textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());

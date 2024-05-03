@@ -179,7 +179,7 @@ public class RuanganController implements Initializable {
 
 	@FXML
 	public void buttonTambahOnAction(ActionEvent event) {
-		logger.debug("Button Add Event");
+		logger.debug("Button Tambah On Action");
 
 		if (Modal.getInstance().confirmation()) {
 			try {
@@ -217,7 +217,7 @@ public class RuanganController implements Initializable {
 
 	@FXML
 	public void buttonUbahOnAction(ActionEvent event) {
-		logger.debug("Button Change Event");
+		logger.debug("Button Ubah On Action");
 
 		if (Modal.getInstance().confirmation()) {
 			if (this.selectedModel != null) {
@@ -264,7 +264,7 @@ public class RuanganController implements Initializable {
 
 	@FXML
 	public void buttonHapusOnAction(ActionEvent event) {
-		logger.debug("Button Remove Event");
+		logger.debug("Button Hapus On Action");
 
 		if (Modal.getInstance().confirmation()) {
 			if (this.selectedModel != null) {
@@ -297,7 +297,7 @@ public class RuanganController implements Initializable {
 
 	@FXML
 	public void buttonFasilitasTambahOnAction(ActionEvent event) {
-		logger.debug("Button Fasilitas Add Event");
+		logger.debug("Button Fasilitas Tambah On Action");
 
 		if (Modal.getInstance().confirmation()) {
 			try {
@@ -328,7 +328,7 @@ public class RuanganController implements Initializable {
 
 	@FXML
 	public void buttonFasilitasHapusOnAction(ActionEvent event) {
-		logger.debug("Button Fasilitas Remove Event");
+		logger.debug("Button Fasilitas Hapus On Action");
 
 		if (Modal.getInstance().confirmation()) {
 			if (this.selectedModel != null && this.selectedFasilitasModel != null) {

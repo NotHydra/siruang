@@ -183,6 +183,14 @@ public class RuanganController implements Initializable {
 
 		if (Modal.getInstance().confirmation()) {
 			try {
+				if (textFieldKapasitas.getText().trim().isEmpty()) {
+					throw new IllegalArgumentException("Kapasitas tidak boleh kosong");
+				}
+
+				if (textFieldKapasitas.getText().matches("\\d+") == false) {
+					throw new IllegalArgumentException("Kapasitas harus berupa angka bulat positif");
+				}
+
 				service.add(new RuanganModel(
 						textFieldNama.getText(),
 						textAreaDeskripsi.getText(),
@@ -211,9 +219,17 @@ public class RuanganController implements Initializable {
 	public void buttonUbahOnAction(ActionEvent event) {
 		logger.debug("Button Change Event");
 
-		if (this.selectedModel != null) {
-			if (Modal.getInstance().confirmation()) {
+		if (Modal.getInstance().confirmation()) {
+			if (this.selectedModel != null) {
 				try {
+					if (textFieldKapasitas.getText().trim().isEmpty()) {
+						throw new IllegalArgumentException("Kapasitas tidak boleh kosong");
+					}
+
+					if (textFieldKapasitas.getText().matches("\\d+") == false) {
+						throw new IllegalArgumentException("Kapasitas harus berupa angka bulat positif");
+					}
+
 					service.change(
 							this.selectedModel.getId(),
 							new RuanganModel(
@@ -240,6 +256,9 @@ public class RuanganController implements Initializable {
 					logger.error(e.getMessage());
 				}
 			}
+			else {
+				Modal.getInstance().fail("Pilih ruangan yang ingin diubah");
+			}
 		}
 	}
 
@@ -247,8 +266,8 @@ public class RuanganController implements Initializable {
 	public void buttonHapusOnAction(ActionEvent event) {
 		logger.debug("Button Remove Event");
 
-		if (this.selectedModel != null) {
-			if (Modal.getInstance().confirmation()) {
+		if (Modal.getInstance().confirmation()) {
+			if (this.selectedModel != null) {
 				try {
 					service.remove(this.selectedModel.getId());
 
@@ -269,6 +288,9 @@ public class RuanganController implements Initializable {
 
 					logger.error(e.getMessage());
 				}
+			}
+			else {
+				Modal.getInstance().fail("Pilih ruangan yang ingin dihapus");
 			}
 		}
 	}
@@ -308,8 +330,9 @@ public class RuanganController implements Initializable {
 	public void buttonFasilitasHapusOnAction(ActionEvent event) {
 		logger.debug("Button Fasilitas Remove Event");
 
-		if (this.selectedModel != null && this.selectedFasilitasModel != null) {
-			if (Modal.getInstance().confirmation()) {
+		if (Modal.getInstance().confirmation()) {
+			if (this.selectedModel != null && this.selectedFasilitasModel != null) {
+
 				try {
 					service.removeFasilitas(this.selectedModel.getId(), this.selectedFasilitasModel.getId());
 
@@ -324,6 +347,10 @@ public class RuanganController implements Initializable {
 
 					logger.error(e.getMessage());
 				}
+
+			}
+			else {
+				Modal.getInstance().fail("Pilih fasilitas yang ingin dihapus");
 			}
 		}
 	}

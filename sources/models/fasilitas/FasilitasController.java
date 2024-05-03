@@ -157,8 +157,8 @@ public class FasilitasController implements Initializable {
 	void buttonUbahOnAction(ActionEvent event) {
 		logger.debug("Button Ubah On Action");
 
-		if (this.selectedModel != null) {
-			if (Modal.getInstance().confirmation()) {
+		if (Modal.getInstance().confirmation()) {
+			if (this.selectedModel != null) {
 				try {
 					service.change(
 							this.selectedModel.getId(),
@@ -184,6 +184,9 @@ public class FasilitasController implements Initializable {
 					logger.error(e.getMessage());
 				}
 			}
+			else {
+				Modal.getInstance().fail("Pilih fasilitas yang ingin diubah");
+			}
 		}
 	}
 
@@ -191,8 +194,8 @@ public class FasilitasController implements Initializable {
 	void buttonHapusOnAction(ActionEvent event) {
 		logger.debug("Button Hapus On Action");
 
-		if (this.selectedModel != null) {
-			if (Modal.getInstance().confirmation()) {
+		if (Modal.getInstance().confirmation()) {
+			if (this.selectedModel != null) {
 				try {
 					service.remove(this.selectedModel.getId());
 
@@ -210,6 +213,9 @@ public class FasilitasController implements Initializable {
 
 					logger.error(e.getMessage());
 				}
+			}
+			else {
+				Modal.getInstance().fail("Pilih fasilitas yang ingin dihapus");
 			}
 		}
 	}

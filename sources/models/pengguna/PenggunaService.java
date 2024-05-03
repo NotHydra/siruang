@@ -54,18 +54,20 @@ public class PenggunaService
 
 	@Override
 	public void add(PenggunaModel model) {
-		this.logger.debug();
+		// this.logger.debug();
 
-		try {
-			this.database.executeUpdate(""
-			+ "INSERT INTO " + this.table + " ("
-			+ "INSERT INTO "
-			+ " ' " + model.getNama() + "'"
-			+ ");");
-		}
-		catch (Exception e) {
-			this.logger.error("Failed to add:" + e.getMessage());
-		}
+		// try {
+		// this.database.executeUpdate(""
+		// + "INSERT INTO " + this.table + " ("
+		// + "INSERT INTO "
+		// + " ' " + model.getNama() + "'"
+		// + ");");
+		// }
+		// catch (Exception e) {
+		// this.logger.error("Failed to add:" + e.getMessage());
+		// }
+
+		throw new UnsupportedOperationException("Unimplemented method 'add'");
 	}
 
 	@Override

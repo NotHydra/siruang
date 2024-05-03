@@ -27,7 +27,7 @@ public class Database {
             catch (Exception e) {
                 Database.instance.logger.error("Failed to initialize Database instance: " + e.getMessage());
 
-                throw new RuntimeException("Failed to initialize Database instance");
+                System.exit(0);
             }
         }
 

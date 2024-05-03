@@ -3,10 +3,10 @@ package models.fasilitas;
 
 import java.sql.ResultSet;
 
+import interfaces.ServiceFindInterface;
+import interfaces.ServiceChoiceBoxInterface;
 import interfaces.ServiceAddInterface;
 import interfaces.ServiceChangeInterface;
-import interfaces.ServiceChoiceBoxInterface;
-import interfaces.ServiceFindInterface;
 
 import providers.Logger;
 import providers.Database;
@@ -108,7 +108,42 @@ public class FasilitasService
 			}
 		}
 		catch (Exception e) {
-			this.logger.error("Failed to find FasilitasModel: " + e.getMessage());
+			this.logger.error("Failed to find id: " + e.getMessage());
+		}
+
+		return null;
+	}
+
+	@Override
+	public ChoiceBoxModel[] findChoiceBox() {
+		this.logger.debug("Find Choice Box");
+
+		try {
+			final int total = this.database.tableTotal(this.table);
+			final ResultSet result = this.database.executeQuery(""
+					+ "SELECT "
+					+ "id, "
+					+ "nama "
+					+ "FROM " + this.table
+					+ ";");
+
+			final ChoiceBoxModel[] models = new ChoiceBoxModel[total + 1];
+
+			models[0] = new ChoiceBoxModel("Pilih Fasilitas");
+
+			int i = 1;
+			while (result.next()) {
+				models[i] = new ChoiceBoxModel(
+						result.getInt("id"),
+						result.getString("nama"));
+
+				i++;
+			}
+
+			return models;
+		}
+		catch (Exception e) {
+			this.logger.error("Failed to find choice box: " + e.getMessage());
 		}
 
 		return null;
@@ -150,40 +185,5 @@ public class FasilitasService
 		catch (Exception e) {
 			this.logger.error("Failed to change: " + e.getMessage());
 		}
-	}
-
-	@Override
-	public ChoiceBoxModel[] findChoiceBox() {
-		this.logger.debug("Find Choice Box");
-
-		try {
-			final int total = this.database.tableTotal(this.table);
-			final ResultSet result = this.database.executeQuery(""
-					+ "SELECT "
-					+ "id, "
-					+ "nama "
-					+ "FROM " + this.table
-					+ ";");
-
-			final ChoiceBoxModel[] models = new ChoiceBoxModel[total + 1];
-
-			models[0] = new ChoiceBoxModel("Pilih Fasilitas");
-
-			int i = 1;
-			while (result.next()) {
-				models[i] = new ChoiceBoxModel(
-						result.getInt("id"),
-						result.getString("nama"));
-
-				i++;
-			}
-
-			return models;
-		}
-		catch (Exception e) {
-			this.logger.error("Failed to find choice box: " + e.getMessage());
-		}
-
-		return null;
 	}
 }

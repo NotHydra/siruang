@@ -4,23 +4,14 @@ package models.fasilitas;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-<<<<<<< HEAD
-=======
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-<<<<<<< HEAD
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-
-public class FasilitasController implements Initializable {
-=======
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -36,27 +27,11 @@ public class FasilitasController implements Initializable {
 	private final static FasilitasService service = FasilitasService.getInstance();
 
 	private FasilitasModel selectedModel;
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
 
 	@FXML
 	private Label labelProfile;
 
 	@FXML
-<<<<<<< HEAD
-	private TableView<?> tableMain;
-
-	@FXML
-	private TableColumn<?, ?> tableMainColumnDibuat;
-
-	@FXML
-	private TableColumn<?, ?> tableMainColumnDiubah;
-
-	@FXML
-	private TableColumn<?, ?> tableMainColumnKeterangan;
-
-	@FXML
-	private TableColumn<?, ?> tableMainColumnNama;
-=======
 	private TableView<FasilitasModel> tableMain;
 
 	@FXML
@@ -76,7 +51,6 @@ public class FasilitasController implements Initializable {
 
 	@FXML
 	private TextArea textAreaKeterangan;
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
 
 	@FXML
 	private TextField textFieldDibuat;
@@ -84,57 +58,39 @@ public class FasilitasController implements Initializable {
 	@FXML
 	private TextField textFieldDiubah;
 
-<<<<<<< HEAD
 	@FXML
 	private TextField textFieldKeterangan;
 
 	@FXML
-	private TextField textFieldNama;
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-
-	}
-
-	@FXML
 	void onActionFasilitas(ActionEvent event) {
+	}
+
+	@FXML
+	void buttonPeminjamanOnAction(ActionEvent event) {
 
 	}
 
 	@FXML
-	void onActionHapus(ActionEvent event) {
+
+	void buttonRuanganOnAction(ActionEvent event) {
+		View.getInstance().set("ruangan");
+	}
+
+	@FXML
+	void buttonFasilitasOnAction(ActionEvent event) {
+		View.getInstance().set("fasilitas");
+	}
+
+	@FXML
+	void buttonPenggunaOnAction(ActionEvent event) {
 
 	}
 
 	@FXML
-	void onActionLogout(ActionEvent event) {
+	void buttonLogoutOnAction(ActionEvent event) {
 
 	}
 
-	@FXML
-	void onActionPeminjaman(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onActionPengguna(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onActionRuangan(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onActionTambah(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onActionUbah(ActionEvent event) {
-
-=======
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		logger.debug("Initialize");
@@ -151,18 +107,15 @@ public class FasilitasController implements Initializable {
 		logger.debug("Table Reload");
 
 		tableMain.setItems(FXCollections.observableArrayList(service.find()));
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
 	}
 
 	@FXML
 	void tableMainItemClick(MouseEvent event) {
-<<<<<<< HEAD
-
-	}
-=======
 		logger.debug("Table Main Item Click");
 
-		try {
+		try
+
+		{
 			this.selectedModel = tableMain.getSelectionModel().getSelectedItem();
 
 			textFieldNama.setText(this.selectedModel.getNama());
@@ -172,32 +125,6 @@ public class FasilitasController implements Initializable {
 		}
 		catch (Exception e) {
 		}
-
-	}
-
-	@FXML
-	void buttonPeminjamanOnAction(ActionEvent event) {
-
-	}
-
-	@FXML
-	void buttonRuanganOnAction(ActionEvent event) {
-
-	}
-
-	@FXML
-	void buttonFasilitasOnAction(ActionEvent event) {
-		View.getInstance().set("fasilitas");
-	}
-
-	@FXML
-	void buttonPenggunaOnAction(ActionEvent event) {
-
-	}
-
-	@FXML
-	void buttonLogoutOnAction(ActionEvent event) {
-
 	}
 
 	@FXML
@@ -270,5 +197,4 @@ public class FasilitasController implements Initializable {
 			}
 		}
 	}
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
 }

@@ -116,7 +116,6 @@ public class BookController implements Initializable {
             else if (event.getSource() == tableViewGenre) {
                 this.selectedGenreModel = tableViewGenre.getSelectionModel().getSelectedItem();
             }
-
         }
         catch (Exception e) {
         }
@@ -213,7 +212,6 @@ public class BookController implements Initializable {
 
                 this.tableReload();
                 tableViewGenre.setItems(FXCollections.observableArrayList(this.selectedModel.getGenres()));
-
             }
             catch (Exception e) {
                 Modal.getInstance().fail(e.getMessage());

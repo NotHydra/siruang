@@ -11,6 +11,7 @@ import interfaces.ServiceFindDetailedInterface;
 
 import providers.Logger;
 import providers.Database;
+
 import global.choice_box.ChoiceBoxModel;
 import global.detailed.DetailedService;
 
@@ -270,24 +271,6 @@ public class BookService
         }
     }
 
-    public void addGenre(int idBook, int idGenre) {
-        this.logger.debug("Add Book Genre");
-
-        try {
-            this.database.executeUpdate(""
-                    + "INSERT INTO book_genre ("
-                    + "id_book, "
-                    + "id_genre"
-                    + ") VALUES ("
-                    + idBook + ", "
-                    + idGenre
-                    + ");");
-        }
-        catch (Exception e) {
-            this.logger.error("Failed to add book genre: " + e.getMessage());
-        }
-    }
-
     @Override
     public void change(int id, BookModel model) {
         this.logger.debug("Change");
@@ -303,6 +286,24 @@ public class BookService
         }
         catch (Exception e) {
             this.logger.error("Failed to change: " + e.getMessage());
+        }
+    }
+
+    public void addGenre(int idBook, int idGenre) {
+        this.logger.debug("Add Genre");
+
+        try {
+            this.database.executeUpdate(""
+                    + "INSERT INTO book_genre ("
+                    + "id_book, "
+                    + "id_genre"
+                    + ") VALUES ("
+                    + idBook + ", "
+                    + idGenre
+                    + ");");
+        }
+        catch (Exception e) {
+            this.logger.error("Failed to add book genre: " + e.getMessage());
         }
     }
 

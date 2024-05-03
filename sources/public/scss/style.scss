@@ -131,10 +131,6 @@ $borderShadow: darken($mainColor, 12.5%);
 
             .content-body-item-subtitle {
                 -fx-text-fill: $textColorDark;
-<<<<<<< HEAD
-                -fx-alignment: left;
-=======
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
 
                 -fx-font-family: $fontFamily;
                 -fx-font-size: 18px;
@@ -143,71 +139,42 @@ $borderShadow: darken($mainColor, 12.5%);
                 -fx-border-width: 0 0 1 0;
             }
 
-<<<<<<< HEAD
-            .content-body-item-table {
-                -fx-background-color: transparent;
-
-                -fx-border-color: $borderShadow;
-                -fx-border-width: 0 0 1 0;
-
-                .content-body-item-table-header {
-                    -fx-background-color: $mainColor;
-                    
-                    -fx-size:48px;
-
-                    -fx-border-color: $borderShadow;
-                    -fx-border-width: 0 1 1 0;
-
-                    -fx-cursor: hand;
-
-                    // .table-cell {
-                    //     -fx-text-fill: $textColorDark;
-                    //     -fx-alignment: center;
-
-                    //     -fx-font-family: $fontFamily;
-                    //     -fx-font-size: 18px;
-                    // }
-                }
-            }
-
-            .content-body-data-label {
-                -fx-text-fill: $textColorDark;
-                -fx-alignment: left;
-=======
             .content-body-action-label {
                 -fx-text-fill: $textColorDark;
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
 
                 -fx-font-family: $fontFamily;
                 -fx-font-size: 16px;
             }
 
-<<<<<<< HEAD
-            .content-body-data-textfield {
-                -fx-text-fill: $textColorDark;
-                -fx-alignment: left;
-
-                -fx-font-family: $fontFamily;
-                -fx-font-size: 14px;
-            }
-
-            .content-body-action-button-success {
-                -fx-background-color: $successColor;
-                -fx-background-radius: 12px;
-
-                -fx-text-fill: $textColorLight;
-=======
             .content-body-action-textfield {
+                -fx-background-color: $mainColor;
+                
                 -fx-text-fill: $textColorDark;
 
                 -fx-font-family: $fontFamily;
                 -fx-font-size: 11px;
+                
+                -fx-border-color: $borderShadow;
+                -fx-border-width: 1.5px;
+                -fx-border-radius: 4px;
+            }
+
+            .content-body-action-choicebox {
+                -fx-background-color: $mainColor;
+                
+                -fx-text-fill: $textColorDark;
+
+                -fx-font-family: $fontFamily;
+                -fx-font-size: 11px;
+                
+                -fx-border-color: $borderShadow;
+                -fx-border-width: 1.5px;
+                -fx-border-radius: 4px;
             }
 
             .content-body-action-button {
                 -fx-background-radius: 0;
 
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
                 -fx-alignment: center;
 
                 -fx-font-family: $fontFamily;
@@ -215,15 +182,6 @@ $borderShadow: darken($mainColor, 12.5%);
 
                 -fx-cursor: hand;
 
-<<<<<<< HEAD
-                -fx-border-color: darken($successColor, 12.5%);
-                -fx-border-width: 1px;
-                -fx-border-radius: 8px;
-
-                &:hover {
-                    -fx-background-color: darken($successColor, 10%);
-                    -fx-text-fill: darken($textColorLight, 10%);
-=======
                 -fx-border-width: 1px 0 1px 0;
                 -fx-border-radius: 0;
 
@@ -247,63 +205,17 @@ $borderShadow: darken($mainColor, 12.5%);
 
                 &:hover {
                     -fx-background-color: darken($successColor, 6%);
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
                 }
             }
 
             .content-body-action-button-warning {
                 -fx-background-color: $warningColor;
-<<<<<<< HEAD
-                -fx-background-radius: 12px;
-
-                -fx-text-fill: $textColorLight;
-                -fx-alignment: center;
-
-                -fx-font-family: $fontFamily;
-                -fx-font-size: 18px;
-
-                -fx-cursor: hand;
 
                 -fx-border-color: darken($warningColor, 12.5%);
-                -fx-border-width: 1px;
-                -fx-border-radius: 8px;
-
-                &:hover {
-                    -fx-background-color: darken($warningColor, 10%);
-                    -fx-text-fill: darken($textColorLight, 10%);
-                }
-=======
-
-                -fx-border-color: darken($warningColor, 12.5%);
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
             }
 
             .content-body-action-button-danger {
                 -fx-background-color: $dangerColor;
-<<<<<<< HEAD
-                -fx-background-radius: 12px;
-
-                -fx-text-fill: $textColorLight;
-                -fx-alignment: center;
-
-                -fx-font-family: $fontFamily;
-                -fx-font-size: 18px;
-
-                -fx-cursor: hand;
-
-                -fx-border-color: darken($dangerColor, 12.5%);
-                -fx-border-width: 1px;
-                -fx-border-radius: 8px;
-
-                &:hover {
-                    -fx-background-color: darken($dangerColor, 10%);
-                    -fx-text-fill: darken($textColorLight, 10%);
-                }
-            }
-        }
-    }
-}
-=======
 
                 -fx-border-color: darken($dangerColor, 12.5%);
             }
@@ -328,6 +240,9 @@ $borderShadow: darken($mainColor, 12.5%);
 .table-view {
     -fx-background-color: transparent;
 
+    -fx-border-color: $borderShadow;
+    -fx-border-width: 0 0 1px 0;
+
     .column-header {
         -fx-background-color: $mainColor;
 
@@ -348,5 +263,3 @@ $borderShadow: darken($mainColor, 12.5%);
         }
     }
 }
-
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0

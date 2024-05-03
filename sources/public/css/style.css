@@ -82,97 +82,33 @@
 }
 .content .content-body .content-body-item .content-body-item-subtitle {
   -fx-text-fill: #4A4A4A;
-<<<<<<< HEAD
-  -fx-alignment: left;
-=======
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
   -fx-font-family: "Montserrat Bold", "Roboto", sans-serif;
   -fx-font-size: 18px;
   -fx-border-color: #dfdfdf;
   -fx-border-width: 0 0 1 0;
 }
-<<<<<<< HEAD
-.content .content-body .content-body-item .content-body-item-table {
-  -fx-background-color: transparent;
-  -fx-border-color: #dfdfdf;
-  -fx-border-width: 0 0 1 0;
-}
-.content .content-body .content-body-item .content-body-item-table .content-body-item-table-header {
-  -fx-background-color: #FFFFFF;
-  -fx-size: 48px;
-  -fx-border-color: #dfdfdf;
-  -fx-border-width: 0 1 1 0;
-  -fx-cursor: hand;
-}
-.content .content-body .content-body-item .content-body-data-label {
-  -fx-text-fill: #4A4A4A;
-  -fx-alignment: left;
-  -fx-font-family: "Montserrat Bold", "Roboto", sans-serif;
-  -fx-font-size: 16px;
-}
-.content .content-body .content-body-item .content-body-data-textfield {
-  -fx-text-fill: #4A4A4A;
-  -fx-alignment: left;
-  -fx-font-family: "Montserrat Bold", "Roboto", sans-serif;
-  -fx-font-size: 14px;
-}
-.content .content-body .content-body-item .content-body-action-button-success {
-  -fx-background-color: #42d163;
-  -fx-background-radius: 12px;
-  -fx-text-fill: #F5F5F5;
-  -fx-alignment: center;
-  -fx-font-family: "Montserrat Bold", "Roboto", sans-serif;
-  -fx-font-size: 18px;
-  -fx-cursor: hand;
-  -fx-border-color: #29aa47;
-  -fx-border-width: 1px;
-  -fx-border-radius: 8px;
-}
-.content .content-body .content-body-item .content-body-action-button-success:hover {
-  -fx-background-color: #2cb44b;
-  -fx-text-fill: gainsboro;
-}
-.content .content-body .content-body-item .content-body-action-button-warning {
-  -fx-background-color: #FFC107;
-  -fx-background-radius: 12px;
-  -fx-text-fill: #F5F5F5;
-  -fx-alignment: center;
-  -fx-font-family: "Montserrat Bold", "Roboto", sans-serif;
-  -fx-font-size: 18px;
-  -fx-cursor: hand;
-  -fx-border-color: #c69500;
-  -fx-border-width: 1px;
-  -fx-border-radius: 8px;
-}
-.content .content-body .content-body-item .content-body-action-button-warning:hover {
-  -fx-background-color: #d39e00;
-  -fx-text-fill: gainsboro;
-}
-.content .content-body .content-body-item .content-body-action-button-danger {
-  -fx-background-color: #DC3545;
-  -fx-background-radius: 12px;
-  -fx-text-fill: #F5F5F5;
-  -fx-alignment: center;
-  -fx-font-family: "Montserrat Bold", "Roboto", sans-serif;
-  -fx-font-size: 18px;
-  -fx-cursor: hand;
-  -fx-border-color: #b21f2d;
-  -fx-border-width: 1px;
-  -fx-border-radius: 8px;
-}
-.content .content-body .content-body-item .content-body-action-button-danger:hover {
-  -fx-background-color: #bd2130;
-  -fx-text-fill: gainsboro;
-=======
 .content .content-body .content-body-item .content-body-action-label {
   -fx-text-fill: #4A4A4A;
   -fx-font-family: "Montserrat Bold", "Roboto", sans-serif;
   -fx-font-size: 16px;
 }
 .content .content-body .content-body-item .content-body-action-textfield {
+  -fx-background-color: #FFFFFF;
   -fx-text-fill: #4A4A4A;
   -fx-font-family: "Montserrat Bold", "Roboto", sans-serif;
   -fx-font-size: 11px;
+  -fx-border-color: #dfdfdf;
+  -fx-border-width: 1.5px;
+  -fx-border-radius: 4px;
+}
+.content .content-body .content-body-item .content-body-action-choicebox {
+  -fx-background-color: #FFFFFF;
+  -fx-text-fill: #4A4A4A;
+  -fx-font-family: "Montserrat Bold", "Roboto", sans-serif;
+  -fx-font-size: 11px;
+  -fx-border-color: #dfdfdf;
+  -fx-border-width: 1.5px;
+  -fx-border-radius: 4px;
 }
 .content .content-body .content-body-item .content-body-action-button {
   -fx-background-radius: 0;
@@ -218,6 +154,8 @@
 
 .table-view {
   -fx-background-color: transparent;
+  -fx-border-color: #dfdfdf;
+  -fx-border-width: 0 0 1px 0;
 }
 .table-view .column-header {
   -fx-background-color: #FFFFFF;
@@ -232,5 +170,4 @@
   -fx-text-fill: #4A4A4A;
   -fx-font-family: "Montserrat Bold", "Roboto", sans-serif;
   -fx-font-size: 14px;
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
 }/*# sourceMappingURL=style.css.map */

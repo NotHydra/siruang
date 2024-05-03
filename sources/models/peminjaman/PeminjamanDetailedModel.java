@@ -9,11 +9,11 @@ import enums.StatusEnum;
 import models.pengguna.PenggunaModel;
 import models.ruangan.RuanganModel;
 
-public class PeminjamanDetailModel extends PeminjamanModel {
+public class PeminjamanDetailedModel extends PeminjamanModel {
 	private final RuanganModel ruangan;
 	private final PenggunaModel pengguna;
 
-	public PeminjamanDetailModel(int id, int idRuangan, int idPengguna, RuanganModel ruangan, PenggunaModel pengguna, String namaPeminjam, LocalDateTime waktuMulai, LocalDateTime waktuSelesai, String keterangan, StatusEnum status, Timestamp dibuat) {
+	public PeminjamanDetailedModel(int id, int idRuangan, int idPengguna, RuanganModel ruangan, PenggunaModel pengguna, String namaPeminjam, LocalDateTime waktuMulai, LocalDateTime waktuSelesai, String keterangan, StatusEnum status, Timestamp dibuat) {
 		super(id, idRuangan, idPengguna, namaPeminjam, waktuMulai, waktuSelesai, keterangan, status, dibuat);
 
 		this.pengguna = pengguna;

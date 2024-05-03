@@ -1,18 +1,11 @@
 package models.peminjaman;
 
 
-<<<<<<< HEAD
-import java.security.Timestamp;
-import java.time.LocalDateTime;
-
-import enums.StatusEnum;
-=======
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import enums.StatusEnum;
 
->>>>>>> db838e3b20a6e8e8092145de5f5b81dbe20f89b0
 import global.base.BaseModel;
 
 public class PeminjamanModel extends BaseModel {

@@ -152,7 +152,7 @@ $borderShadow: darken($mainColor, 12.5%);
                 -fx-text-fill: $textColorDark;
 
                 -fx-font-family: $fontFamily;
-                -fx-font-size: 11px;
+                -fx-font-size: 13px;
                 
                 -fx-border-color: $borderShadow;
                 -fx-border-width: 1.5px;
@@ -259,7 +259,7 @@ $borderShadow: darken($mainColor, 12.5%);
             -fx-text-fill: $textColorDark;
 
             -fx-font-family: $fontFamily;
-            -fx-font-size: 14px;
+            -fx-font-size: 16px;
         }
     }
 }

@@ -78,8 +78,22 @@ public class PenggunaService
 
 	@Override
 	public void change(int id, PenggunaModel model) {
-		// Tugas Juwan
+		this.logger.debug("Change");
 
-		throw new UnsupportedOperationException("Unimplemented method 'change'");
+		try {
+			this.database.executeUpdate(""
+			+ "UPDATE " + this.table + " SET "
+			+ "name='" + model.getNama() + "', "
+			+ "username=" + model.getUsername() + "',"
+			+ "password=" + model.getPassword() + "',"
+			+ "dibuat=" + model.getDibuat() + "',"
+			+ "diubah=" + model.getDiubah() + "'"
+			+ "WHERE "
+			+ "id=" + id
+			+ ";");
+		}
+		catch (Exception e) {
+		    this.logger.error("Failed to Change:" + e.getMessage());
+		}
 	}
 }

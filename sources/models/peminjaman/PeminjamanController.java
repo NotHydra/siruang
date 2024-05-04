@@ -206,6 +206,22 @@ public class PeminjamanController implements Initializable {
 						StatusEnum.valueToEnum(choiceBoxStatus.getValue().toLowerCase())));
 
 				this.tableReload();
+
+				tableMain.getSelectionModel().select(tableMain.getItems().size() - 1);
+				this.selectedModel = tableMain.getItems().get(tableMain.getItems().size() - 1);
+
+				choiceBoxRuangan.setValue(choiceBoxRuangan.getItems().stream()
+						.filter(item -> item.getId() == this.selectedModel.getRuangan().getId())
+						.findFirst()
+						.orElse(null));
+				textFieldNamaPeminjam.setText(this.selectedModel.getNamaPeminjam());
+				datePickerTanggalMulai.setValue(this.selectedModel.getWaktuMulai().toLocalDate());
+				choiceBoxJamMulai.setValue(Utility.formatDateTimeToTime(this.selectedModel.getWaktuMulai()));
+				datePickerTanggalSelesai.setValue(this.selectedModel.getWaktuSelesai().toLocalDate());
+				choiceBoxJamSelesai.setValue(Utility.formatDateTimeToTime(this.selectedModel.getWaktuSelesai()));
+				textAreaKeterangan.setText(this.selectedModel.getKeterangan());
+				choiceBoxStatus.setValue(Utility.capitalize(this.selectedModel.getStatus().value));
+				textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
 			}
 			catch (Exception e) {
 				Modal.getInstance().fail(e.getMessage());

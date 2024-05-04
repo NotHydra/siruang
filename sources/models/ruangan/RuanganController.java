@@ -130,7 +130,7 @@ public class RuanganController implements Initializable {
 		tableFasilitasColumnNama.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getNama()));
 		tableFasilitasColumnKeterangan.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getKeterangan()));
 
-		tableFasilitas.setItems(null);
+		tableFasilitas.setItems(FXCollections.observableArrayList(new FasilitasModel[0]));
 
 		choiceBoxFasilitas.setDisable(true);
 		buttonFasilitasTambah.setDisable(true);
@@ -281,7 +281,13 @@ public class RuanganController implements Initializable {
 
 					this.tableReload();
 
-					tableFasilitas.setItems(null);
+					tableFasilitas.setItems(FXCollections.observableArrayList(new FasilitasModel[0]));
+
+					choiceBoxFasilitas.setValue(choiceBoxFasilitas.getItems().get(0));
+
+					choiceBoxFasilitas.setDisable(true);
+					buttonFasilitasTambah.setDisable(true);
+					buttonFasilitasHapus.setDisable(true);
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());

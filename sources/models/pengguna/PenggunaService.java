@@ -54,22 +54,25 @@ public class PenggunaService
 
 	@Override
 	public void add(PenggunaModel model) {
-		this.logger.debug(Add);
+		this.logger.debug("Add");
 
 		try {
 			this.database.executeUpdate(""
 			+ "INSERT INTO " + this.table + " ("
-			+ "nama,"
-			+ "password,"
-			+ "aktif,"
-			+ "level,"
+			+ "nama"
+			+ "password"
+			+ "aktif"
+			+ "level"
 			+ ") VALUES ("
 			+ "'" + model.getNama() +"', "
 			+ "'" + model.getUsername() + "', "
 			+ "'" + model.getPassword() + "', "
 			+ "'" + model.getAktif() + "', "
-			+ "'" + model.getLevels() + "'"
+			+ "'" + model.getLevel() + "'"
 			+ ");");
+		catch (Exception e) {
+		    this.logger.error("Failed to add:" + e.getMessage());
+		}
 		}
 	}
 

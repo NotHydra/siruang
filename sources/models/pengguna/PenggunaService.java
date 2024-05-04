@@ -73,7 +73,6 @@ public class PenggunaService
 		catch (Exception e) {
 		    this.logger.error("Failed to add:" + e.getMessage());
 		}
-		}
 	}
 
 	@Override

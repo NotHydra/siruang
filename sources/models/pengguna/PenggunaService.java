@@ -59,9 +59,9 @@ public class PenggunaService
 		try {
 			this.database.executeUpdate(""
 			+ "INSERT INTO " + this.table + " ("
-			+ "nama"
-			+ "password"
-			+ "aktif"
+			+ "nama,"
+			+ "password,"
+			+ "aktif,"
 			+ "level"
 			+ ") VALUES ("
 			+ "'" + model.getNama() +"', "

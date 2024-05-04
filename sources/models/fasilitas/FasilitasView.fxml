@@ -208,7 +208,7 @@
                         </Label>
                         <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="589.0" prefWidth="198.0">
                           <content>
-                              <VBox fillWidth="false" prefWidth="154.0" styleClass="scroll-pane-container">
+                              <VBox fillWidth="false" prefWidth="154.0" styleClass="scroll-pane-container" stylesheets="@../../public/css/style.css">
                                  <children>
                                     <VBox>
                                        <children>
@@ -346,13 +346,16 @@
                                        </VBox.margin>
                                     </GridPane>
                                  </children>
+                                 <padding>
+                                    <Insets top="16.0" />
+                                 </padding>
                               </VBox>
                           </content>
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                            <padding>
-                              <Insets left="20.0" right="24.0" top="16.0" />
+                              <Insets left="20.0" right="24.0" />
                            </padding>
                         </ScrollPane>
                      </children>

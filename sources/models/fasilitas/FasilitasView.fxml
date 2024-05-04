@@ -186,7 +186,7 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <TableView fx:id="tableMain" maxHeight="1.7976931348623157E308" onMouseClicked="#tableMainItemClick" stylesheets="@../../public/css/style.css" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="tableMain" maxHeight="-Infinity" onMouseClicked="#tableMainItemClick" prefHeight="530.0" stylesheets="@../../public/css/style.css" VBox.vgrow="ALWAYS">
                           <columns>
                             <TableColumn fx:id="tableMainColumnNama" prefWidth="60.0" text="Nama" />
                             <TableColumn fx:id="tableMainColumnKeterangan" minWidth="7.20001220703125" prefWidth="150.0" text="Keterangan" />
@@ -208,7 +208,7 @@
                         </Label>
                         <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="589.0" prefWidth="198.0">
                           <content>
-                              <VBox fillWidth="false" prefWidth="154.0" style="-fx-background-color: white;">
+                              <VBox fillWidth="false" prefWidth="154.0" styleClass="scroll-pane-container">
                                  <children>
                                     <VBox>
                                        <children>

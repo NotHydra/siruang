@@ -29,7 +29,7 @@ $borderShadow: darken($mainColor, 12.5%);
     -fx-background-radius: 0 0 28px 0;
 
     -fx-border-color: $borderShadow;
-    -fx-border-width: 0 1 1 0;
+    -fx-border-width: 0 1px 1px 0;
     -fx-border-radius: 0 0 28px 0;
 
     .sidebar-brand {
@@ -266,6 +266,13 @@ $borderShadow: darken($mainColor, 12.5%);
 
 .scroll-pane {
     -fx-background-color: transparent;
+    
+    .scroll-pane-container {
+        -fx-background-color: $mainColor;
+
+        -fx-border-color: $borderShadow;
+        -fx-border-width: 0 0 1px 0;
+    }
 
     .scroll-bar {
         -fx-cursor: hand;

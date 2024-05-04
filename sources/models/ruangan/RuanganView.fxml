@@ -211,7 +211,7 @@
                         </Label>
                         <ScrollPane fitToHeight="true" fitToWidth="true">
                            <content>
-                              <VBox fillWidth="false" style="-fx-background-color: WHITE;">
+                              <VBox fillWidth="false" styleClass="scroll-pane-container">
                                  <children>
                                     <VBox>
                                        <children>
@@ -410,7 +410,7 @@
                         </Label>
                         <ScrollPane fitToHeight="true" fitToWidth="true">
                            <content>
-                              <VBox fillWidth="false" style="-fx-background-color: WHITE;">
+                              <VBox fillWidth="false" prefHeight="267.0" prefWidth="154.0" styleClass="scroll-pane-container">
                                  <padding>
                                     <Insets bottom="120.0" />
                                  </padding>

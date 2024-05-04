@@ -24,7 +24,7 @@ public class View {
     public void start(Stage stage) {
         this.logger.debug("Start");
 
-        this.scene = new Scene(this.load("fasilitas"));
+        this.scene = new Scene(this.load("peminjaman"));
         stage.setScene(this.scene);
         stage.show();
     }

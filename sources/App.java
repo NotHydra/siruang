@@ -11,6 +11,7 @@ public class App extends Application {
 
 		View.getInstance().add("fasilitas", "models/fasilitas/Fasilitas");
 		View.getInstance().add("ruangan", "models/ruangan/Ruangan");
+		View.getInstance().add("peminjaman", "models/peminjaman/Peminjaman");
 
 		App.launch(args);
 	};

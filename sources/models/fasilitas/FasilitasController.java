@@ -62,12 +62,8 @@ public class FasilitasController implements Initializable {
 	private TextField textFieldKeterangan;
 
 	@FXML
-	void onActionFasilitas(ActionEvent event) {
-	}
-
-	@FXML
 	void buttonPeminjamanOnAction(ActionEvent event) {
-
+		View.getInstance().set("peminjaman");
 	}
 
 	@FXML

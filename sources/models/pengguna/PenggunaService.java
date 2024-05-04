@@ -58,21 +58,21 @@ public class PenggunaService
 
 		try {
 			this.database.executeUpdate(""
-			+ "INSERT INTO " + this.table + " ("
-			+ "nama,"
-			+ "password,"
-			+ "aktif,"
-			+ "level"
-			+ ") VALUES ("
-			+ "'" + model.getNama() +"', "
-			+ "'" + model.getUsername() + "', "
-			+ "'" + model.getPassword() + "', "
-			+ "'" + model.getAktif() + "', "
-			+ "'" + model.getLevel() + "'"
-			+ ");");
+					+ "INSERT INTO " + this.table + " ("
+					+ "nama,"
+					+ "password,"
+					+ "aktif,"
+					+ "level"
+					+ ") VALUES ("
+					+ "'" + model.getNama() + "', "
+					+ "'" + model.getUsername() + "', "
+					+ "'" + model.getPassword() + "', "
+					+ "'" + model.getAktif() + "', "
+					+ "'" + model.getLevel() + "'"
+					+ ");");
 		}
 		catch (Exception e) {
-		    this.logger.error("Failed to add:" + e.getMessage());
+			this.logger.error("Failed to add:" + e.getMessage());
 		}
 	}
 

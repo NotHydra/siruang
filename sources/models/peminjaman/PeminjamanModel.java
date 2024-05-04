@@ -61,6 +61,10 @@ public class PeminjamanModel extends BaseModel {
 			throw new IllegalArgumentException("Nama peminjam tidak boleh kosong");
 		}
 
+		if (waktuMulai.isEqual(waktuSelesai)) {
+			throw new IllegalArgumentException("Waktu mulai tidak boleh sama dengan waktu selesai");
+		}
+
 		if (waktuMulai.isAfter(waktuSelesai)) {
 			throw new IllegalArgumentException("Waktu mulai harus sebelum waktu selesai");
 		}

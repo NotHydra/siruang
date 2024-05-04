@@ -90,7 +90,7 @@ public class RuanganController implements Initializable {
 
 	@FXML
 	void buttonPeminjamanOnAction(ActionEvent event) {
-
+		View.getInstance().set("peminjaman");
 	}
 
 	@FXML

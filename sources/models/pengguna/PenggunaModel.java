@@ -70,6 +70,14 @@ public class PenggunaModel extends BaseModel {
         return this.password;
     }
 
+    public boolean getAktif() {
+        return this.aktif;
+    }
+
+    public LevelEnum getLevel() {
+        return this.level;
+    }
+
     public Timestamp getDibuat() {
         return this.dibuat;
     }

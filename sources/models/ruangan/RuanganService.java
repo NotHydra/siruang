@@ -270,7 +270,7 @@ public class RuanganService
 
 			models[0] = new ChoiceBoxModel(0, "Pilih Ruangan");
 
-			int i = 0;
+			int i = 1;
 			while (result.next()) {
 				models[i] = new ChoiceBoxModel(
 						result.getInt("id"),

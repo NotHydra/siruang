@@ -33,9 +33,9 @@ public abstract class BaseService<ModelType extends BaseModel> {
 
     public abstract ModelType findId(int id);
 
-    public abstract void add(ModelType model);
+    // public abstract void add(ModelType model);
 
-    public abstract void change(int id, ModelType model);
+    // public abstract void change(int id, ModelType model);
 
     public void remove(int id) {
         this.logger.debug("Remove");

@@ -71,9 +71,6 @@ public class PenggunaService
 			+ "'" + model.getLevels() + "'"
 			+ ");");
 		}
-		catch (Exception e) {
-			this.logger.error("Failed to add:" + e.getMessage());
-		}
 	}
 
 	@Override

@@ -70,6 +70,7 @@ public class PenggunaService
 			+ "'" + model.getAktif() + "', "
 			+ "'" + model.getLevel() + "'"
 			+ ");");
+		}
 		catch (Exception e) {
 		    this.logger.error("Failed to add:" + e.getMessage());
 		}

@@ -60,6 +60,7 @@ public class PenggunaService
 			this.database.executeUpdate(""
 					+ "INSERT INTO " + this.table + " ("
 					+ "nama,"
+					+ "username," 
 					+ "password,"
 					+ "aktif,"
 					+ "level"

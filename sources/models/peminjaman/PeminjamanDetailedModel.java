@@ -4,7 +4,7 @@ package models.peminjaman;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-import enums.StatusEnum;
+// import enums.StatusEnum;
 
 import models.pengguna.PenggunaModel;
 import models.ruangan.RuanganModel;
@@ -13,8 +13,14 @@ public class PeminjamanDetailedModel extends PeminjamanModel {
 	private final RuanganModel ruangan;
 	private final PenggunaModel pengguna;
 
-	public PeminjamanDetailedModel(int id, int idRuangan, int idPengguna, RuanganModel ruangan, PenggunaModel pengguna, String namaPeminjam, LocalDateTime waktuMulai, LocalDateTime waktuSelesai, String keterangan, StatusEnum status, Timestamp dibuat) {
-		super(id, idRuangan, idPengguna, namaPeminjam, waktuMulai, waktuSelesai, keterangan, status, dibuat);
+	// public PeminjamanDetailedModel(int id, int idRuangan, int idPengguna,
+	// RuanganModel ruangan, PenggunaModel pengguna, String namaPeminjam,
+	// LocalDateTime waktuMulai, LocalDateTime waktuSelesai, String keterangan,
+	// StatusEnum status, Timestamp dibuat) {
+	public PeminjamanDetailedModel(int id, int idRuangan, int idPengguna, RuanganModel ruangan, PenggunaModel pengguna, String namaPeminjam, LocalDateTime waktuMulai, LocalDateTime waktuSelesai, String keterangan, Timestamp dibuat) {
+		// super(id, idRuangan, idPengguna, namaPeminjam, waktuMulai, waktuSelesai,
+		// keterangan, status, dibuat);
+		super(id, idRuangan, idPengguna, namaPeminjam, waktuMulai, waktuSelesai, keterangan, dibuat);
 
 		this.pengguna = pengguna;
 		this.ruangan = ruangan;
@@ -40,7 +46,7 @@ public class PeminjamanDetailedModel extends PeminjamanModel {
 				+ "waktuMulai=" + this.getWaktuMulai() + ", "
 				+ "waktuSelesai=" + this.getWaktuSelesai() + ", "
 				+ "keterangan=" + this.getKeterangan() + ", "
-				+ "status=" + this.getStatus() + ", "
+				// + "status=" + this.getStatus() + ", "
 				+ "dibuat=" + this.getDibuat()
 				+ ")";
 	}

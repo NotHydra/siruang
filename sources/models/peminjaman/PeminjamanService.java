@@ -8,7 +8,7 @@ import interfaces.ServiceFindDetailedInterface;
 import interfaces.ServiceFindInterface;
 
 import enums.LevelEnum;
-import enums.StatusEnum;
+// import enums.StatusEnum;
 
 import providers.Logger;
 import providers.Database;
@@ -62,7 +62,7 @@ public class PeminjamanService
 					+ "waktu_mulai, "
 					+ "waktu_selesai, "
 					+ "keterangan, "
-					+ "status, "
+					// + "status, "
 					+ "dibuat "
 					+ "FROM " + this.table
 					+ ";");
@@ -79,7 +79,7 @@ public class PeminjamanService
 						result.getTimestamp("waktu_mulai").toLocalDateTime(),
 						result.getTimestamp("waktu_selesai").toLocalDateTime(),
 						result.getString("keterangan"),
-						StatusEnum.valueToEnum(result.getString("status")),
+						// StatusEnum.valueToEnum(result.getString("status")),
 						result.getTimestamp("dibuat"));
 
 				i++;
@@ -108,7 +108,7 @@ public class PeminjamanService
 					+ "waktu_mulai, "
 					+ "waktu_selesai, "
 					+ "keterangan, "
-					+ "status, "
+					// + "status, "
 					+ "dibuat "
 					+ "FROM " + this.table + " "
 					+ "WHERE id=" + id
@@ -123,7 +123,7 @@ public class PeminjamanService
 						result.getTimestamp("waktu_mulai").toLocalDateTime(),
 						result.getTimestamp("waktu_selesai").toLocalDateTime(),
 						result.getString("keterangan"),
-						StatusEnum.valueToEnum(result.getString("status")),
+						// StatusEnum.valueToEnum(result.getString("status")),
 						result.getTimestamp("dibuat"));
 			}
 		}
@@ -149,7 +149,7 @@ public class PeminjamanService
 					+ "peminjaman.waktu_mulai, "
 					+ "peminjaman.waktu_selesai, "
 					+ "peminjaman.keterangan, "
-					+ "peminjaman.status, "
+					// + "peminjaman.status, "
 					+ "peminjaman.dibuat, "
 					+ "ruangan.id, "
 					+ "ruangan.nama, "
@@ -198,7 +198,7 @@ public class PeminjamanService
 						result.getTimestamp("peminjaman.waktu_mulai").toLocalDateTime(),
 						result.getTimestamp("peminjaman.waktu_selesai").toLocalDateTime(),
 						result.getString("peminjaman.keterangan"),
-						StatusEnum.valueToEnum(result.getString("peminjaman.status")),
+						// StatusEnum.valueToEnum(result.getString("peminjaman.status")),
 						result.getTimestamp("peminjaman.dibuat"));
 
 				i++;
@@ -227,7 +227,7 @@ public class PeminjamanService
 					+ "peminjaman.waktu_mulai, "
 					+ "peminjaman.waktu_selesai, "
 					+ "peminjaman.keterangan, "
-					+ "peminjaman.status, "
+					// + "peminjaman.status, "
 					+ "peminjaman.dibuat, "
 					+ "ruangan.id, "
 					+ "ruangan.nama, "
@@ -274,7 +274,7 @@ public class PeminjamanService
 						result.getTimestamp("peminjaman.waktu_mulai").toLocalDateTime(),
 						result.getTimestamp("peminjaman.waktu_selesai").toLocalDateTime(),
 						result.getString("peminjaman.keterangan"),
-						StatusEnum.valueToEnum(result.getString("peminjaman.status")),
+						// StatusEnum.valueToEnum(result.getString("peminjaman.status")),
 						result.getTimestamp("peminjaman.dibuat"));
 			}
 		}
@@ -297,16 +297,16 @@ public class PeminjamanService
 					+ "nama_peminjam, "
 					+ "waktu_mulai, "
 					+ "waktu_selesai, "
-					+ "keterangan, "
-					+ "status"
+					+ "keterangan"
+					// + "status"
 					+ ") VALUES ("
 					+ "'" + model.getIdRuangan() + "', "
 					+ "'" + model.getIdPengguna() + "', "
 					+ "'" + model.getNamaPeminjam() + "', "
 					+ "'" + model.getWaktuMulai() + "', "
 					+ "'" + model.getWaktuSelesai() + "', "
-					+ "'" + model.getKeterangan() + "', "
-					+ "'" + model.getStatus().value + "'"
+					+ "'" + model.getKeterangan() + "'"
+					// + "'" + model.getStatus().value + "'"
 					+ ");");
 		}
 		catch (Exception e) {

@@ -20,7 +20,7 @@ import javafx.scene.input.MouseEvent;
 
 import components.Modal;
 
-import enums.StatusEnum;
+// import enums.StatusEnum;
 
 import providers.Logger;
 import providers.Utility;
@@ -59,8 +59,8 @@ public class PeminjamanController implements Initializable {
 	@FXML
 	private TableColumn<PeminjamanDetailedModel, String> tableMainColumnKeterangan;
 
-	@FXML
-	private TableColumn<PeminjamanDetailedModel, String> tableMainColumnStatus;
+	// @FXML
+	// private TableColumn<PeminjamanDetailedModel, String> tableMainColumnStatus;
 
 	@FXML
 	private TableColumn<PeminjamanDetailedModel, String> tableMainColumnDibuat;
@@ -86,8 +86,8 @@ public class PeminjamanController implements Initializable {
 	@FXML
 	private TextArea textAreaKeterangan;
 
-	@FXML
-	private ChoiceBox<String> choiceBoxStatus;
+	// @FXML
+	// private ChoiceBox<String> choiceBoxStatus;
 
 	@FXML
 	private TextField textFieldDibuat;
@@ -126,7 +126,8 @@ public class PeminjamanController implements Initializable {
 		tableMainColumnWaktuMulai.setCellValueFactory(model -> new SimpleStringProperty(Utility.formatDateTime(model.getValue().getWaktuMulai())));
 		tableMainColumnWaktuSelesai.setCellValueFactory(model -> new SimpleStringProperty(Utility.formatDateTime(model.getValue().getWaktuSelesai())));
 		tableMainColumnKeterangan.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getKeterangan()));
-		tableMainColumnStatus.setCellValueFactory(model -> new SimpleStringProperty(Utility.capitalize(model.getValue().getStatus().value)));
+		// tableMainColumnStatus.setCellValueFactory(model -> new
+		// SimpleStringProperty(Utility.capitalize(model.getValue().getStatus().value)));
 		tableMainColumnDibuat.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getDibuat().toString()));
 
 		tableMain.setItems(FXCollections.observableArrayList(service.findDetailed()));
@@ -140,8 +141,9 @@ public class PeminjamanController implements Initializable {
 		choiceBoxJamSelesai.getItems().addAll(Utility.availableTime);
 		choiceBoxJamSelesai.setValue(choiceBoxJamSelesai.getItems().get(0));
 
-		choiceBoxStatus.getItems().addAll(new String[] { "Pilih Status", "Belum Direspon", "Ditolak", "Diterima" });
-		choiceBoxStatus.setValue(choiceBoxStatus.getItems().get(0));
+		// choiceBoxStatus.getItems().addAll(new String[] { "Pilih Status", "Belum
+		// Direspon", "Ditolak", "Diterima" });
+		// choiceBoxStatus.setValue(choiceBoxStatus.getItems().get(0));
 	}
 
 	public void tableReload() {
@@ -167,7 +169,7 @@ public class PeminjamanController implements Initializable {
 			datePickerTanggalSelesai.setValue(this.selectedModel.getWaktuSelesai().toLocalDate());
 			choiceBoxJamSelesai.setValue(Utility.formatDateTimeToTime(this.selectedModel.getWaktuSelesai()));
 			textAreaKeterangan.setText(this.selectedModel.getKeterangan());
-			choiceBoxStatus.setValue(Utility.capitalize(this.selectedModel.getStatus().value));
+			// choiceBoxStatus.setValue(Utility.capitalize(this.selectedModel.getStatus().value));
 			textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
 		}
 		catch (Exception e) {
@@ -192,9 +194,10 @@ public class PeminjamanController implements Initializable {
 					throw new Exception("Tanggal selesai tidak boleh kosong");
 				}
 
-				if (choiceBoxStatus.getValue() == null || choiceBoxStatus.getValue().equals("Pilih Status")) {
-					throw new Exception("Status tidak boleh kosong");
-				}
+				// if (choiceBoxStatus.getValue() == null ||
+				// choiceBoxStatus.getValue().equals("Pilih Status")) {
+				// throw new Exception("Status tidak boleh kosong");
+				// }
 
 				service.add(new PeminjamanModel(
 						choiceBoxRuangan.getValue().getId(),
@@ -202,8 +205,9 @@ public class PeminjamanController implements Initializable {
 						textFieldNamaPeminjam.getText(),
 						datePickerTanggalMulai.getValue().atTime(Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[0]), Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[1])),
 						datePickerTanggalSelesai.getValue().atTime(Integer.parseInt(choiceBoxJamSelesai.getValue().split(":")[0]), Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[1])),
-						textAreaKeterangan.getText(),
-						StatusEnum.valueToEnum(choiceBoxStatus.getValue().toLowerCase())));
+						textAreaKeterangan.getText()
+				// StatusEnum.valueToEnum(choiceBoxStatus.getValue().toLowerCase())
+				));
 
 				this.tableReload();
 
@@ -220,7 +224,7 @@ public class PeminjamanController implements Initializable {
 				datePickerTanggalSelesai.setValue(this.selectedModel.getWaktuSelesai().toLocalDate());
 				choiceBoxJamSelesai.setValue(Utility.formatDateTimeToTime(this.selectedModel.getWaktuSelesai()));
 				textAreaKeterangan.setText(this.selectedModel.getKeterangan());
-				choiceBoxStatus.setValue(Utility.capitalize(this.selectedModel.getStatus().value));
+				// choiceBoxStatus.setValue(Utility.capitalize(this.selectedModel.getStatus().value));
 				textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
 			}
 			catch (Exception e) {
@@ -249,7 +253,7 @@ public class PeminjamanController implements Initializable {
 					datePickerTanggalSelesai.setValue(null);
 					choiceBoxJamSelesai.setValue(choiceBoxJamSelesai.getItems().get(0));
 					textAreaKeterangan.clear();
-					choiceBoxStatus.setValue(null);
+					// choiceBoxStatus.setValue(null);
 					textFieldDibuat.clear();
 
 					this.tableReload();

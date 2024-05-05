@@ -1,0 +1,32 @@
+Feature:
+    Auth
+        Login
+
+    Role
+        Operator (DONE)
+        Administrator
+
+    Peminjaman (DONE)
+        Add (DONE)
+        Remove (DONE)
+        Logic For Overlapping Submission
+        Remove Status (DONE)
+
+    Ruangan (DONE)
+        Add (DONE)
+        Change (DONE)
+        Remove (DONE)
+
+        Add Fasilitas (DONE)
+        Remove Fasilitas (DONE)
+
+    Fasilitas (DONE)
+        Add (DONE)
+        Change (DONE)
+        Remove (DONE)
+
+    Pengguna
+        Add
+        Change
+        Change Password
+        Remove

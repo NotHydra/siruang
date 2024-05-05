@@ -40,6 +40,16 @@ public class Modal {
         return result.isPresent() && result.get() == ButtonType.YES;
     }
 
+    public void success(String message) {
+        this.logger.debug("Success");
+
+        final Alert success = new Alert(Alert.AlertType.INFORMATION);
+        success.setTitle("Notifikasi");
+        success.setHeaderText("Berhasil");
+        success.setContentText(message);
+        success.showAndWait();
+    }
+
     public void fail(String message) {
         this.logger.debug("Fail");
 

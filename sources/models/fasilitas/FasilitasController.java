@@ -15,13 +15,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-
+import models.authentication.LoginService;
 import components.Modal;
-import components.Navigation;
+import enums.LevelEnum;
+import components.Base;
 import providers.Logger;
-import providers.View;
+import providers.Utility;
 
-public class FasilitasController extends Navigation implements Initializable {
+public class FasilitasController extends Base implements Initializable {
 	private final static Logger logger = new Logger(FasilitasController.class.getName());
 
 	private final static FasilitasService service = FasilitasService.getInstance();
@@ -64,6 +65,8 @@ public class FasilitasController extends Navigation implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		logger.debug("Initialize");
+
+		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).value));
 
 		tableMainColumnNama.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getNama()));
 		tableMainColumnKeterangan.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getKeterangan()));

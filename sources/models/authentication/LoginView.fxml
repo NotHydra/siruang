@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../public/css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="models.authentication.LoginController">
+   <center>
+      <GridPane styleClass="login" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="800.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="480.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="1020.0" fitWidth="1825.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <image>
+                  <Image url="@../../public/image/login.jpg" />
+               </image>
+            </ImageView>
+            <GridPane styleClass="login-content" GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="440.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" styleClass="login-content-title" text="SIRUANG" />
+                        <Label maxWidth="1.7976931348623157E308" text="Sistem Informasi - Peminjaman Ruangan">
+                           <styleClass>
+                              <String fx:value="login-content-subtitle" />
+                              <String fx:value="login-content-line" />
+                           </styleClass>
+                        </Label>
+                        <TextField fx:id="textFieldUsername" promptText="Username" styleClass="login-content-textfield">
+                           <VBox.margin>
+                              <Insets top="32.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <PasswordField fx:id="passwordFieldPassword" promptText="Password" styleClass="login-content-textfield">
+                           <VBox.margin>
+                              <Insets top="16.0" />
+                           </VBox.margin>
+                        </PasswordField>
+                        <Button mnemonicParsing="false" onAction="#buttonLoginOnAction" styleClass="login-content-button-login" text="Login">
+                           <VBox.margin>
+                              <Insets top="24.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="8.0" left="24.0" right="24.0" top="8.0" />
+                           </padding>
+                           <graphic>
+                              <FontAwesomeIconView glyphName="UNLOCK" styleClass="login-content-button-login-icon" wrappingWidth="24.0" />
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="76.0" right="76.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

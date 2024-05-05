@@ -9,6 +9,7 @@ public class App extends Application {
 	public static void main(String[] args) {
 		Logger.getInstance().info("Starting application");
 
+		View.getInstance().add("login", "models/authentication/Login");
 		View.getInstance().add("peminjaman", "models/peminjaman/Peminjaman");
 		View.getInstance().add("ruangan", "models/ruangan/Ruangan");
 		View.getInstance().add("fasilitas", "models/fasilitas/Fasilitas");

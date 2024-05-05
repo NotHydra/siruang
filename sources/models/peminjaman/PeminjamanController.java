@@ -19,19 +19,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import components.Modal;
-import components.Navigation;
+import enums.LevelEnum;
+import components.Base;
 
 // import enums.StatusEnum;
 
 import providers.Logger;
 import providers.Utility;
-import providers.View;
 
 import global.choice_box.ChoiceBoxModel;
 
+import models.authentication.LoginService;
 import models.ruangan.RuanganService;
 
-public class PeminjamanController extends Navigation implements Initializable {
+public class PeminjamanController extends Base implements Initializable {
 	private final static Logger logger = new Logger(PeminjamanController.class.getName());
 
 	private final static PeminjamanService service = PeminjamanService.getInstance();
@@ -96,6 +97,8 @@ public class PeminjamanController extends Navigation implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		logger.debug("Initialize");
+
+		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).value));
 
 		tableMainColumnRuangan.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getRuangan().getNama()));
 		tableMainColumnNamaPeminjam.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getNamaPeminjam()));

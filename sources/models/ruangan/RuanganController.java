@@ -5,7 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import components.Modal;
-import components.Navigation;
+import enums.LevelEnum;
+import components.Base;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -20,13 +21,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import providers.Logger;
-import providers.View;
+import providers.Utility;
 import global.choice_box.ChoiceBoxModel;
-
+import models.authentication.LoginService;
 import models.fasilitas.FasilitasModel;
 import models.fasilitas.FasilitasService;
 
-public class RuanganController extends Navigation implements Initializable {
+public class RuanganController extends Base implements Initializable {
 	private final static Logger logger = new Logger(RuanganController.class.getName());
 
 	private final static RuanganService service = RuanganService.getInstance();
@@ -92,6 +93,8 @@ public class RuanganController extends Navigation implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		logger.debug("Initialize");
+
+		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).value));
 
 		// Ruangan
 		tableMainColumnNama.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getNama()));

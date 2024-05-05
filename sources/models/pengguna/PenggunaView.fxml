@@ -190,10 +190,10 @@
                         </Label>
                         <TableView fx:id="tableMain" maxHeight="-Infinity" onMouseClicked="#tableMainItemClick" prefHeight="530.0" stylesheets="@../../public/css/style.css" VBox.vgrow="ALWAYS">
                           <columns>
-                            <TableColumn fx:id="tableMainColumnNama" prefWidth="60.0" text="Nama" />
-                            <TableColumn fx:id="tableMainColumnUsername" minWidth="7.20001220703125" prefWidth="150.0" text="Username" />
-                              <TableColumn fx:id="tableMainColumnAktif" minWidth="7.20001220703125" prefWidth="150.0" text="Status Aktif" />
-                              <TableColumn fx:id="tableMainColumnLevel" minWidth="7.20001220703125" prefWidth="150.0" text="Level" />
+                            <TableColumn fx:id="tableMainColumnNama" prefWidth="140.79998475313187" text="Nama" />
+                            <TableColumn fx:id="tableMainColumnUsername" minWidth="7.20001220703125" prefWidth="211.99998474121094" text="Username" />
+                              <TableColumn fx:id="tableMainColumnAktif" minWidth="7.20001220703125" prefWidth="105.0" resizable="false" text="Status Aktif" />
+                              <TableColumn fx:id="tableMainColumnLevel" minWidth="7.20001220703125" resizable="false" text="Level" />
                               <TableColumn fx:id="tableMainColumnDibuat" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="125.0" resizable="false" sortType="DESCENDING" text="Dibuat" />
                               <TableColumn fx:id="tableMainColumnDiubah" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="125.0" resizable="false" sortType="DESCENDING" text="Diubah" />
                           </columns>

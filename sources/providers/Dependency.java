@@ -12,6 +12,8 @@ public class Dependency {
     private String databaseUsername;
     private String databasePassword;
 
+    private String startingView = "login";
+
     private Dependency(Logger logger) {
         this.logger = logger;
     };
@@ -72,5 +74,11 @@ public class Dependency {
         this.logger.debug("Get Database Password");
 
         return this.databasePassword;
+    }
+
+    public String getStartingView() {
+        this.logger.debug("Get Starting View");
+
+        return this.startingView;
     }
 }

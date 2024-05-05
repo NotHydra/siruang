@@ -16,15 +16,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-
-import components.Navigation;
+import models.authentication.LoginService;
+import components.Base;
 import components.Modal;
 
 import enums.LevelEnum;
 
 import providers.Logger;
+import providers.Utility;
 
-public class PenggunaController extends Navigation implements Initializable {
+public class PenggunaController extends Base implements Initializable {
 	private final static Logger logger = new Logger(PenggunaController.class.getName());
 
 	private final static PenggunaService service = PenggunaService.getInstance();
@@ -84,7 +85,9 @@ public class PenggunaController extends Navigation implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		logger.info("initialize");
+		logger.debug("initialize");
+
+		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).value));
 
 		tableMainColumnNama.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNama()));
 		tableMainColumnUsername.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUsername()));
@@ -175,6 +178,10 @@ public class PenggunaController extends Navigation implements Initializable {
 		if (Modal.getInstance().confirmation()) {
 			if (this.selectedModel != null) {
 				try {
+					if (this.selectedModel.getId() == ((int) LoginService.getInstance().getSession().get("id"))) {
+						throw new Exception("Tidak boleh mengubah data sendiri");
+					}
+
 					if (this.selectedModel.getLevel() == LevelEnum.ADMINISTRATOR) {
 						throw new Exception("Administrator tidak bisa diubah");
 					}
@@ -223,6 +230,10 @@ public class PenggunaController extends Navigation implements Initializable {
 		if (Modal.getInstance().confirmation()) {
 			if (this.selectedModel != null) {
 				try {
+					if (this.selectedModel.getId() == ((int) LoginService.getInstance().getSession().get("id"))) {
+						throw new Exception("Tidak boleh mengubah data password sendiri");
+					}
+
 					if (this.selectedModel.getLevel() == LevelEnum.ADMINISTRATOR) {
 						throw new Exception("Administrator tidak bisa diubah password");
 					}
@@ -278,6 +289,10 @@ public class PenggunaController extends Navigation implements Initializable {
 		if (Modal.getInstance().confirmation()) {
 			if (this.selectedModel != null) {
 				try {
+					if (this.selectedModel.getId() == ((int) LoginService.getInstance().getSession().get("id"))) {
+						throw new Exception("Tidak boleh menghapus data sendiri");
+					}
+
 					if (this.selectedModel.getLevel() == LevelEnum.ADMINISTRATOR) {
 						throw new Exception("Administrator tidak bisa dihapus");
 					}

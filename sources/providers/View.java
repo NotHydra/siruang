@@ -24,7 +24,11 @@ public class View {
     public void start(Stage stage) {
         this.logger.debug("Start");
 
-        this.scene = new Scene(this.load("peminjaman"));
+        this.scene = new Scene(this.load(Dependency.getInstance().getStartingView()));
+
+        stage.setTitle("SIRUANG - Sistem Informasi Peminjaman Ruangan");
+        stage.setResizable(false);
+
         stage.setScene(this.scene);
         stage.show();
     }

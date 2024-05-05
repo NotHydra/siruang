@@ -197,7 +197,7 @@ public class PeminjamanController implements Initializable {
 				if (!service.isAvailable(
 						choiceBoxRuangan.getValue().getId(),
 						datePickerTanggalMulai.getValue().atTime(Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[0]), Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[1])),
-						datePickerTanggalSelesai.getValue().atTime(Integer.parseInt(choiceBoxJamSelesai.getValue().split(":")[0]), Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[1])))) {
+						datePickerTanggalSelesai.getValue().atTime(Integer.parseInt(choiceBoxJamSelesai.getValue().split(":")[0]), Integer.parseInt(choiceBoxJamSelesai.getValue().split(":")[1])))) {
 					throw new Exception("Ruangan tidak tersedia pada waktu tersebut");
 				}
 
@@ -211,7 +211,7 @@ public class PeminjamanController implements Initializable {
 						1,
 						textFieldNamaPeminjam.getText(),
 						datePickerTanggalMulai.getValue().atTime(Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[0]), Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[1])),
-						datePickerTanggalSelesai.getValue().atTime(Integer.parseInt(choiceBoxJamSelesai.getValue().split(":")[0]), Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[1])),
+						datePickerTanggalSelesai.getValue().atTime(Integer.parseInt(choiceBoxJamSelesai.getValue().split(":")[0]), Integer.parseInt(choiceBoxJamSelesai.getValue().split(":")[1])),
 						textAreaKeterangan.getText()
 				// StatusEnum.valueToEnum(choiceBoxStatus.getValue().toLowerCase())
 				));

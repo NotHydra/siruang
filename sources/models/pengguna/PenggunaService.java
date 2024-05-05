@@ -95,7 +95,9 @@ public class PenggunaService
 				+ "SELECT "
 				+ "id, "
 				+ "nama, "
-				+ "keterangan, "
+				+ "username, "
+				+ "aktif, "
+				+ "level, "
 				+ "dibuat, "
 				+ "diubah "
 				+ "FROM " + this.table
@@ -106,7 +108,9 @@ public class PenggunaService
 				return new PenggunaModel(
 						result.getInt("id"),
 						result.getString("nama"),
-						result.getString("keterangan"),
+						result.getString("username"),
+						result.getBoolean("aktif"),
+						LevelEnum.valueToEnum(result.getString("level")),
 						result.getTimestamp("dibuat"),
 						result.getTimestamp("diubah"));
 			}

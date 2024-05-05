@@ -84,10 +84,10 @@ public class PenggunaService
 			this.database.executeUpdate(""
 			+ "UPDATE " + this.table + " SET "
 			+ "nama='" + model.getNama() + "', "
-			+ "username='" + model.getUsername() + "',"
-			+ "password='" + model.getPassword() + "',"
-			+ "dibuat='" + model.getDibuat() + "',"
-			+ "diubah='" + model.getDiubah() + "'"
+			+ "username='" + model.getUsername() + "', "
+			+ "password='" + model.getPassword() + "', "
+			+ "dibuat='" + model.getDibuat() + "', "
+			+ "diubah='" + model.getDiubah() + "' "
 			+ "WHERE "
 			+ "id=" + id
 			+ ";");

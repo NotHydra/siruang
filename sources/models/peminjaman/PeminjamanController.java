@@ -194,6 +194,13 @@ public class PeminjamanController implements Initializable {
 					throw new Exception("Tanggal selesai tidak boleh kosong");
 				}
 
+				if (!service.isAvailable(
+						choiceBoxRuangan.getValue().getId(),
+						datePickerTanggalMulai.getValue().atTime(Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[0]), Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[1])),
+						datePickerTanggalSelesai.getValue().atTime(Integer.parseInt(choiceBoxJamSelesai.getValue().split(":")[0]), Integer.parseInt(choiceBoxJamMulai.getValue().split(":")[1])))) {
+					throw new Exception("Ruangan tidak tersedia pada waktu tersebut");
+				}
+
 				// if (choiceBoxStatus.getValue() == null ||
 				// choiceBoxStatus.getValue().equals("Pilih Status")) {
 				// throw new Exception("Status tidak boleh kosong");

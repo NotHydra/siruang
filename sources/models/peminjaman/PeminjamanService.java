@@ -2,6 +2,7 @@ package models.peminjaman;
 
 
 import java.sql.ResultSet;
+import java.time.LocalDateTime;
 
 import interfaces.ServiceAddInterface;
 import interfaces.ServiceFindDetailedInterface;
@@ -11,6 +12,7 @@ import enums.LevelEnum;
 // import enums.StatusEnum;
 
 import providers.Logger;
+import providers.Utility;
 import providers.Database;
 
 import global.detailed.DetailedService;
@@ -312,5 +314,38 @@ public class PeminjamanService
 		catch (Exception e) {
 			this.logger.error("Failed to add: " + e.getMessage());
 		}
+	}
+
+	public boolean isAvailable(int idRuangan, LocalDateTime waktuMulai, LocalDateTime waktuSelesai) {
+		this.logger.debug("Is Available");
+
+		final String formatedWaktuMulai = Utility.formatDateTimeToFull(waktuMulai);
+		final String formatedWaktuSelesai = Utility.formatDateTimeToFull(waktuSelesai);
+
+		logger.debug("Is Available: " + idRuangan + ", " + formatedWaktuMulai + ", " + formatedWaktuSelesai);
+
+		try {
+			final ResultSet result = this.database.executeQuery(""
+					+ "SELECT "
+					+ "COUNT(*) AS total "
+					+ "FROM " + this.table + " "
+					+ "WHERE "
+					+ "id_ruangan=" + idRuangan + " "
+					+ "AND ("
+					+ "(waktu_mulai BETWEEN '" + formatedWaktuMulai + "' AND '" + formatedWaktuSelesai + "') "
+					+ "OR "
+					+ "(waktu_selesai BETWEEN '" + formatedWaktuMulai + "' AND '" + formatedWaktuSelesai + "')"
+					+ ");");
+
+			if (result.next()) {
+				logger.info(String.valueOf(result.getInt("total")));
+				return result.getInt("total") == 0;
+			}
+		}
+		catch (Exception e) {
+			this.logger.error("Failed to is available: " + e.getMessage());
+		}
+
+		return false;
 	}
 }

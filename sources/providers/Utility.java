@@ -57,10 +57,15 @@ public class Utility {
 	};
 
 	private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm");
+	private static DateTimeFormatter dateTimeToFullFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 	private static DateTimeFormatter dateTimeToTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
 	public static String formatDateTime(LocalDateTime dateTime) {
 		return dateTime.format(dateTimeFormatter);
+	}
+
+	public static String formatDateTimeToFull(LocalDateTime dateTime) {
+		return dateTime.format(dateTimeToFullFormatter);
 	}
 
 	public static String formatDateTimeToTime(LocalDateTime dateTime) {

@@ -87,8 +87,36 @@ public class PenggunaService
 
 	@Override
 	public PenggunaModel findId(int id) {
-		// Tugas Bang Bastian
+		this.logger.debug("Find Id");
 
+		try {
+			final int total = this.database.tableTotal(this.table);
+			final ResultSet result = this.database.executeQuery(""
+				+ "SELECT "
+				+ "id, "
+				+ "nama, "
+				+ "keterangan, "
+				+ "dibuat, "
+				+ "diubah "
+				+ "FROM " + this.table
+				+ "WHERE id=" + id
+				+ "; ");
+
+			if (result.next()) {
+				return new PenggunaModel(
+						result.getInt("id"),
+						result.getString("nama"),
+						result.getString("keterangan"),
+						result.getTimestamp("dibuat"),
+						result.getTimestamp("diubah"));
+			}
+		}
+		catch (Exception e) {
+			this.logger.error("Failed to find id:" + e.getMessage());
+		}
+
+		return null;
+	}	
 		throw new UnsupportedOperationException("Unimplemented method 'findId'");
 	}
 

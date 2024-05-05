@@ -121,8 +121,6 @@ public class PenggunaService
 
 		return null;
 	}	
-		throw new UnsupportedOperationException("Unimplemented method 'findId'");
-	}
 
 	@Override
 	public void add(PenggunaModel model) {

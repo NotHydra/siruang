@@ -41,7 +41,7 @@ public class RuanganService
 			}
 		}
 
-		RuanganService.instance.logger.info("Get Instance");
+		RuanganService.instance.logger.debug("Get Instance");
 
 		return RuanganService.instance;
 	}

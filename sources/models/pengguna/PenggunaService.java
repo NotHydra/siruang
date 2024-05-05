@@ -8,6 +8,9 @@ import interfaces.ServiceFindInterface;
 import providers.Logger;
 import providers.Database;
 
+import java.sql.ResultSet;
+
+import enums.LevelEnum;
 import global.base.BaseService;
 
 public class PenggunaService
@@ -41,8 +44,45 @@ public class PenggunaService
 
 	@Override
 	public PenggunaModel[] find() {
+		this.logger.debug("Find");
 
-		throw new UnsupportedOperationException("Unimplemented method 'find'");
+		try {
+			final int total = this.database.tableTotal(this.table);
+			final ResultSet result = this.database.executeQuery(""
+					+ "SELECT "
+					+ "id, "
+					+ "nama, "
+					+ "username, "
+					+ "aktif, "
+					+ "level, "
+					+ "dibuat, "
+					+ "diubah "
+					+ "FROM " + this.table
+					+ ";");
+
+			final PenggunaModel[] models = new PenggunaModel[total];
+
+			int i = 0;
+			while (result.next()) {
+				models[i] = new PenggunaModel(
+						result.getInt("id"),
+						result.getString("nama"),
+						result.getString("username"),
+						result.getBoolean("aktif"),
+						LevelEnum.valueToEnum(result.getString("level")),
+						result.getTimestamp("dibuat"),
+						result.getTimestamp("diubah"));
+
+				i++;
+			}
+
+			return models;
+		}
+		catch (Exception e) {
+			this.logger.error("Failed to find: " + e.getMessage());
+		}
+
+		return null;
 	}
 
 	@Override
@@ -60,7 +100,7 @@ public class PenggunaService
 			this.database.executeUpdate(""
 					+ "INSERT INTO " + this.table + " ("
 					+ "nama, "
-					+ "username, " 
+					+ "username, "
 					+ "password, "
 					+ "aktif, "
 					+ "level "
@@ -68,7 +108,7 @@ public class PenggunaService
 					+ "'" + model.getNama() + "', "
 					+ "'" + model.getUsername() + "', "
 					+ "'" + model.getPassword() + "', "
-					+ "'" + model.getAktif() + "', "
+					+ "'" + (model.getAktif() ? 1 : 0) + "', "
 					+ "'" + model.getLevel() + "'"
 					+ ");");
 		}
@@ -83,18 +123,33 @@ public class PenggunaService
 
 		try {
 			this.database.executeUpdate(""
-			+ "UPDATE " + this.table + " SET "
-			+ "nama='" + model.getNama() + "', "
-			+ "username='" + model.getUsername() + "', "
-			+ "password='" + model.getPassword() + "', "
-			+ "dibuat='" + model.getDibuat() + "', "
-			+ "diubah='" + model.getDiubah() + "' "
-			+ "WHERE "
-			+ "id=" + id
-			+ ";");
+					+ "UPDATE " + this.table + " SET "
+					+ "nama='" + model.getNama() + "', "
+					+ "username='" + model.getUsername() + "', "
+					+ "aktif='" + (model.getAktif() ? 1 : 0) + "', "
+					+ "level='" + model.getLevel() + "' "
+					+ "WHERE "
+					+ "id=" + id
+					+ ";");
 		}
 		catch (Exception e) {
-		    this.logger.error("Failed to Change:" + e.getMessage());
+			this.logger.error("Failed to Change:" + e.getMessage());
+		}
+	}
+
+	public void changePassword(int id, String password) {
+		this.logger.debug("Change Password");
+
+		try {
+			this.database.executeUpdate(""
+					+ "UPDATE " + this.table + " SET "
+					+ "password='" + password + "' "
+					+ "WHERE "
+					+ "id=" + id
+					+ ";");
+		}
+		catch (Exception e) {
+			this.logger.error("Failed to Change Password:" + e.getMessage());
 		}
 	}
 }

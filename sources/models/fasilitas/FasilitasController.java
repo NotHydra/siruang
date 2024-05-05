@@ -17,11 +17,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import components.Modal;
-
+import components.Navigation;
 import providers.Logger;
 import providers.View;
 
-public class FasilitasController implements Initializable {
+public class FasilitasController extends Navigation implements Initializable {
 	private final static Logger logger = new Logger(FasilitasController.class.getName());
 
 	private final static FasilitasService service = FasilitasService.getInstance();
@@ -60,32 +60,6 @@ public class FasilitasController implements Initializable {
 
 	@FXML
 	private TextField textFieldKeterangan;
-
-	@FXML
-	void buttonPeminjamanOnAction(ActionEvent event) {
-		View.getInstance().set("peminjaman");
-	}
-
-	@FXML
-
-	void buttonRuanganOnAction(ActionEvent event) {
-		View.getInstance().set("ruangan");
-	}
-
-	@FXML
-	void buttonFasilitasOnAction(ActionEvent event) {
-		View.getInstance().set("fasilitas");
-	}
-
-	@FXML
-	void buttonPenggunaOnAction(ActionEvent event) {
-
-	}
-
-	@FXML
-	void buttonLogoutOnAction(ActionEvent event) {
-
-	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

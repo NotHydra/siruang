@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import components.Modal;
+import components.Navigation;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -25,7 +26,7 @@ import global.choice_box.ChoiceBoxModel;
 import models.fasilitas.FasilitasModel;
 import models.fasilitas.FasilitasService;
 
-public class RuanganController implements Initializable {
+public class RuanganController extends Navigation implements Initializable {
 	private final static Logger logger = new Logger(RuanganController.class.getName());
 
 	private final static RuanganService service = RuanganService.getInstance();
@@ -87,31 +88,6 @@ public class RuanganController implements Initializable {
 
 	@FXML
 	private Button buttonFasilitasHapus;
-
-	@FXML
-	void buttonPeminjamanOnAction(ActionEvent event) {
-		View.getInstance().set("peminjaman");
-	}
-
-	@FXML
-	void buttonRuanganOnAction(ActionEvent event) {
-		View.getInstance().set("ruangan");
-	}
-
-	@FXML
-	void buttonFasilitasOnAction(ActionEvent event) {
-		View.getInstance().set("fasilitas");
-	}
-
-	@FXML
-	void buttonPenggunaOnAction(ActionEvent event) {
-
-	}
-
-	@FXML
-	void buttonLogoutOnAction(ActionEvent event) {
-
-	}
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {

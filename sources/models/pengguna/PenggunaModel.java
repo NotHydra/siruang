@@ -19,7 +19,17 @@ public class PenggunaModel extends BaseModel {
     public PenggunaModel(String nama, String username, String password, boolean aktif, LevelEnum level) {
         super(-1);
 
-        validate(nama, username, password);
+        if (nama == null || nama.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nama Pengguna tidak boleh kosong");
+        }
+
+        if (username == null || username.trim().isEmpty()) {
+            throw new IllegalArgumentException("Username tidak boleh kosong");
+        }
+
+        if (password == null || password.trim().isEmpty()) {
+            throw new IllegalArgumentException("Password tidak boleh kosong");
+        }
 
         this.nama = nama;
         this.username = username;
@@ -33,8 +43,6 @@ public class PenggunaModel extends BaseModel {
     public PenggunaModel(int id, String nama, String username, String password, boolean aktif, LevelEnum level, Timestamp dibuat, Timestamp diubah) {
         super(id);
 
-        validate(nama, username, password);
-
         this.nama = nama;
         this.username = username;
         this.password = password;
@@ -44,7 +52,9 @@ public class PenggunaModel extends BaseModel {
         this.diubah = diubah;
     }
 
-    private void validate(String nama, String username, String password) {
+    public PenggunaModel(String nama, String username, boolean aktif, LevelEnum level) {
+        super(-1);
+
         if (nama == null || nama.trim().isEmpty()) {
             throw new IllegalArgumentException("Nama Pengguna tidak boleh kosong");
         }
@@ -53,9 +63,25 @@ public class PenggunaModel extends BaseModel {
             throw new IllegalArgumentException("Username tidak boleh kosong");
         }
 
-        if (password == null || password.trim().isEmpty()) {
-            throw new IllegalArgumentException("Password tidak boleh kosong");
-        }
+        this.nama = nama;
+        this.username = username;
+        this.password = null;
+        this.aktif = aktif;
+        this.level = level;
+        this.dibuat = null;
+        this.diubah = null;
+    }
+
+    public PenggunaModel(int id, String nama, String username, boolean aktif, LevelEnum level, Timestamp dibuat, Timestamp diubah) {
+        super(id);
+
+        this.nama = nama;
+        this.username = username;
+        this.password = null;
+        this.aktif = aktif;
+        this.level = level;
+        this.dibuat = dibuat;
+        this.diubah = diubah;
     }
 
     public String getNama() {

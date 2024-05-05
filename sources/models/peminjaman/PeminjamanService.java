@@ -322,8 +322,6 @@ public class PeminjamanService
 		final String formatedWaktuMulai = Utility.formatDateTimeToFull(waktuMulai);
 		final String formatedWaktuSelesai = Utility.formatDateTimeToFull(waktuSelesai);
 
-		logger.debug("Is Available: " + idRuangan + ", " + formatedWaktuMulai + ", " + formatedWaktuSelesai);
-
 		try {
 			final ResultSet result = this.database.executeQuery(""
 					+ "SELECT "

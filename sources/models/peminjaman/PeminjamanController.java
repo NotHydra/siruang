@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import components.Modal;
+import components.Navigation;
 
 // import enums.StatusEnum;
 
@@ -30,7 +31,7 @@ import global.choice_box.ChoiceBoxModel;
 
 import models.ruangan.RuanganService;
 
-public class PeminjamanController implements Initializable {
+public class PeminjamanController extends Navigation implements Initializable {
 	private final static Logger logger = new Logger(PeminjamanController.class.getName());
 
 	private final static PeminjamanService service = PeminjamanService.getInstance();
@@ -91,31 +92,6 @@ public class PeminjamanController implements Initializable {
 
 	@FXML
 	private TextField textFieldDibuat;
-
-	@FXML
-	void buttonPeminjamanOnAction(ActionEvent event) {
-		View.getInstance().set("peminjaman");
-	}
-
-	@FXML
-	void buttonRuanganOnAction(ActionEvent event) {
-		View.getInstance().set("ruangan");
-	}
-
-	@FXML
-	void buttonFasilitasOnAction(ActionEvent event) {
-		View.getInstance().set("fasilitas");
-	}
-
-	@FXML
-	void buttonPenggunaOnAction(ActionEvent event) {
-
-	}
-
-	@FXML
-	void buttonLogoutOnAction(ActionEvent event) {
-
-	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

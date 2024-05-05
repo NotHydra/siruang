@@ -1,6 +1,7 @@
 Feature:
     Auth
         Login
+        Session
 
     Role
         Operator (DONE)
@@ -9,7 +10,7 @@ Feature:
     Peminjaman (DONE)
         Add (DONE)
         Remove (DONE)
-        Logic For Overlapping Submission
+        Logic For Overlapping Submission (DONE)
         Remove Status (DONE)
 
     Ruangan (DONE)
@@ -25,8 +26,9 @@ Feature:
         Change (DONE)
         Remove (DONE)
 
-    Pengguna
-        Add
-        Change
-        Change Password
-        Remove
+    Pengguna (DONE)
+        Add (DONE)
+        Change (DONE)
+        Change Password (DONE)
+        Remove (DONE)
+        Disable on self

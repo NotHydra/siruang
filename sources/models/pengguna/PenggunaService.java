@@ -83,7 +83,7 @@ public class PenggunaService
 		try {
 			this.database.executeUpdate(""
 			+ "UPDATE " + this.table + " SET "
-			+ "name='" + model.getNama() + "', "
+			+ "nama='" + model.getNama() + "', "
 			+ "username=" + model.getUsername() + "',"
 			+ "password=" + model.getPassword() + "',"
 			+ "dibuat=" + model.getDibuat() + "',"

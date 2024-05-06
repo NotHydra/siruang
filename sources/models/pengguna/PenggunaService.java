@@ -90,19 +90,18 @@ public class PenggunaService
 		this.logger.debug("Find Id");
 
 		try {
-			final int total = this.database.tableTotal(this.table);
 			final ResultSet result = this.database.executeQuery(""
-				+ "SELECT "
-				+ "id, "
-				+ "nama, "
-				+ "username, "
-				+ "aktif, "
-				+ "level, "
-				+ "dibuat, "
-				+ "diubah "
-				+ "FROM " + this.table
-				+ "WHERE id=" + id
-				+ "; ");
+					+ "SELECT "
+					+ "id, "
+					+ "nama, "
+					+ "username, "
+					+ "aktif, "
+					+ "level, "
+					+ "dibuat, "
+					+ "diubah "
+					+ "FROM " + this.table
+					+ "WHERE id=" + id
+					+ "; ");
 
 			if (result.next()) {
 				return new PenggunaModel(
@@ -120,7 +119,7 @@ public class PenggunaService
 		}
 
 		return null;
-	}	
+	}
 
 	@Override
 	public void add(PenggunaModel model) {

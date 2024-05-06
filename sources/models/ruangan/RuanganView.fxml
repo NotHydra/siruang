@@ -39,16 +39,22 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="119.9333251953125" minHeight="10.0" prefHeight="102.4666732788086" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="88.79998931884765" minHeight="10.0" prefHeight="56.33332672119141" vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label prefHeight="55.0" prefWidth="240.0" styleClass="sidebar-brand-text" stylesheets="@../../public/css/style.css" text="Peminjaman Ruangan" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
+                  <Label prefHeight="55.0" prefWidth="240.0" styleClass="sidebar-brand-text" stylesheets="@../../public/css/style.css" text="SIRUANG" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
                      <font>
                         <Font name="Montserrat Bold" size="47.0" />
                      </font>
+                     <GridPane.margin>
+                        <Insets bottom="8.0" />
+                     </GridPane.margin>
                   </Label>
-                  <FontAwesomeIconView glyphName="CALENDAR" size="20" styleClass="sidebar-brand-icon" GridPane.halignment="CENTER" />
+                  <FontAwesomeIconView glyphName="CALENDAR" size="20" styleClass="sidebar-brand-icon" GridPane.halignment="CENTER">
+                     <GridPane.margin>
+                        <Insets top="28.0" />
+                     </GridPane.margin></FontAwesomeIconView>
                </children>
             </GridPane>
             <GridPane GridPane.rowIndex="1">

@@ -63,9 +63,11 @@ public class FasilitasModel extends BaseModel {
 	@Override
 	public String toString() {
 		return "FasilitasModel("
-				+ "id=" + id + ", "
-				+ "nama=" + nama + ", "
-				+ "keterangan=" + keterangan
+				+ "id=" + this.id + ", "
+				+ "nama=" + this.nama + ", "
+				+ "keterangan=" + this.keterangan + ", "
+				+ "dibuat=" + this.dibuat + ", "
+				+ "diubah=" + this.diubah
 				+ ")";
 	}
 }

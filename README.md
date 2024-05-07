@@ -1,6 +1,6 @@
 ![SIRUANG - Brand](/sources/public/image/brand-icon.png)
 
-# **Sistem Informasi Peminjaman Ruangan**
+# **Sistem Informasi - Peminjaman Ruangan**
 **SIRUANG** adalah **Sistem Informasi Peminjaman Ruangan** yang dibuat dengan menggunakan bahasa pemrograman **Java** serta penerapan  prinsip-prinsip ***Object Oriented Programming* (OOP)**.
 
 

@@ -1,11 +1,11 @@
 Feature:
-    Auth
-        Login
-        Session
+    Auth (DONE)
+        Login (DONE)
+        Session (DONE)
 
     Role
         Operator (DONE)
-        Administrator
+        Administrator (DONE)
 
     Peminjaman (DONE)
         Add (DONE)
@@ -31,4 +31,4 @@ Feature:
         Change (DONE)
         Change Password (DONE)
         Remove (DONE)
-        Disable on self
+        Disable on self (DONE)

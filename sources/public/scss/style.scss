@@ -11,7 +11,6 @@ $textColorDark: #4A4A4A;
 
 
 $fontFamily: "Montserrat Bold", "Roboto", sans-serif;
-$fontLightFamily: "Montserrat", "Roboto", sans-serif;
 
 $borderShadow: darken($mainColor, 12.5%);
 
@@ -328,8 +327,8 @@ $borderShadow: darken($mainColor, 12.5%);
         .login-content-subtitle {
             -fx-text-fill: $textColorDark;
 
-            -fx-font-family: $fontLightFamily;
-            -fx-font-size: 15px;  
+            -fx-font-family: $fontFamily;
+            -fx-font-size: 18px;  
         }
 
         .login-content-line {

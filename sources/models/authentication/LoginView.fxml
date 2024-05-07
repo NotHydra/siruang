@@ -3,6 +3,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -37,13 +38,20 @@
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="440.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="480.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                      <children>
-                        <Label maxWidth="1.7976931348623157E308" styleClass="login-content-title" text="SIRUANG" />
+                        <ImageView fitHeight="160.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../public/image/brand-main.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
                         <Label maxWidth="1.7976931348623157E308" text="Sistem Informasi - Peminjaman Ruangan">
                            <styleClass>
                               <String fx:value="login-content-subtitle" />
@@ -52,7 +60,7 @@
                         </Label>
                         <TextField fx:id="textFieldUsername" promptText="Username" styleClass="login-content-textfield">
                            <VBox.margin>
-                              <Insets top="32.0" />
+                              <Insets top="24.0" />
                            </VBox.margin>
                         </TextField>
                         <PasswordField fx:id="passwordFieldPassword" promptText="Password" styleClass="login-content-textfield">

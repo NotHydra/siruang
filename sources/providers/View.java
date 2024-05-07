@@ -7,6 +7,7 @@ import java.util.HashMap;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class View {
@@ -26,6 +27,7 @@ public class View {
 
         this.scene = new Scene(this.load(Dependency.getInstance().getStartingView()));
 
+        stage.getIcons().add(new Image(View.class.getResourceAsStream("/public/image/brand-icon.png")));
         stage.setTitle("SIRUANG - Sistem Informasi Peminjaman Ruangan");
         stage.setResizable(false);
 

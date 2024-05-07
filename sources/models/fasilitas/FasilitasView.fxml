@@ -12,6 +12,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -33,29 +35,11 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <GridPane styleClass="sidebar-brand" stylesheets="@../../public/css/style.css">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label prefHeight="55.0" prefWidth="240.0" styleClass="sidebar-brand-text" stylesheets="@../../public/css/style.css" text="SIRUANG" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Montserrat Bold" size="47.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="8.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <FontAwesomeIconView glyphName="CALENDAR" size="20" styleClass="sidebar-brand-icon" GridPane.halignment="CENTER">
-                     <GridPane.margin>
-                        <Insets top="28.0" />
-                     </GridPane.margin></FontAwesomeIconView>
-               </children>
-            </GridPane>
+            <ImageView fitHeight="116.0" fitWidth="211.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../public/image/brand-navigation.png" />
+               </image>
+            </ImageView>
             <GridPane GridPane.rowIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

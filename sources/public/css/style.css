@@ -217,8 +217,8 @@
 }
 .login .login-content .login-content-subtitle {
   -fx-text-fill: #4A4A4A;
-  -fx-font-family: "Montserrat", "Roboto", sans-serif;
-  -fx-font-size: 15px;
+  -fx-font-family: "Montserrat Bold", "Roboto", sans-serif;
+  -fx-font-size: 18px;
 }
 .login .login-content .login-content-line {
   -fx-border-color: #28A745;

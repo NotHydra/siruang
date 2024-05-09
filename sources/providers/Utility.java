@@ -72,6 +72,10 @@ public class Utility {
 		return dateTime.format(dateTimeToTimeFormatter);
 	}
 
+	public static String currentTimestamp() {
+		return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+	}
+
 	public static String capitalize(String text) {
 		String[] words = text.split(" ");
 		StringBuilder result = new StringBuilder();

@@ -20,19 +20,18 @@ import javafx.scene.input.MouseEvent;
 
 import components.Modal;
 import enums.LevelEnum;
-import components.Base;
 
 // import enums.StatusEnum;
 
 import providers.Logger;
 import providers.Utility;
-
+import global.base.BaseController;
 import global.choice_box.ChoiceBoxModel;
 
 import models.authentication.LoginService;
 import models.ruangan.RuanganService;
 
-public class PeminjamanController extends Base implements Initializable {
+public class PeminjamanController extends BaseController implements Initializable {
 	private final static Logger logger = new Logger(PeminjamanController.class.getName());
 
 	private final static PeminjamanService service = PeminjamanService.getInstance();
@@ -98,7 +97,7 @@ public class PeminjamanController extends Base implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		logger.debug("Initialize");
 
-		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).value));
+		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).getValue()));
 
 		tableMainColumnRuangan.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getRuangan().getNama()));
 		tableMainColumnNamaPeminjam.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getNamaPeminjam()));
@@ -125,14 +124,14 @@ public class PeminjamanController extends Base implements Initializable {
 		// choiceBoxStatus.setValue(choiceBoxStatus.getItems().get(0));
 	}
 
-	public void tableReload() {
+	private void tableReload() {
 		logger.debug("Table Reload");
 
 		tableMain.setItems(FXCollections.observableArrayList(service.findDetailed()));
 	}
 
 	@FXML
-	void tableMainItemClick(MouseEvent event) {
+	private void tableMainItemClick(MouseEvent event) {
 		logger.debug("Table Main Item Click");
 
 		try {
@@ -156,7 +155,7 @@ public class PeminjamanController extends Base implements Initializable {
 	}
 
 	@FXML
-	void buttonTambahOnAction(ActionEvent event) {
+	private void buttonTambahOnAction(ActionEvent event) {
 		logger.debug("Button Tambah On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -212,6 +211,8 @@ public class PeminjamanController extends Base implements Initializable {
 				textAreaKeterangan.setText(this.selectedModel.getKeterangan());
 				// choiceBoxStatus.setValue(Utility.capitalize(this.selectedModel.getStatus().value));
 				textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
+
+				Modal.getInstance().success("Peminjaman berhasil ditambahkan");
 			}
 			catch (Exception e) {
 				Modal.getInstance().fail(e.getMessage());
@@ -222,7 +223,7 @@ public class PeminjamanController extends Base implements Initializable {
 	}
 
 	@FXML
-	void buttonHapusOnAction(ActionEvent event) {
+	private void buttonHapusOnAction(ActionEvent event) {
 		logger.debug("Button Hapus On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -243,6 +244,8 @@ public class PeminjamanController extends Base implements Initializable {
 					textFieldDibuat.clear();
 
 					this.tableReload();
+
+					Modal.getInstance().success("Peminjaman berhasil dihapus");
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());

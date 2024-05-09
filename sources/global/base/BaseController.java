@@ -1,15 +1,16 @@
-package components;
+package global.base;
 
 
+import components.Modal;
 import enums.LevelEnum;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import models.authentication.LoginService;
 import providers.View;
 
-public abstract class Base {
+public abstract class BaseController {
 	@FXML
-	void buttonPeminjamanOnAction(ActionEvent event) {
+	protected void buttonPeminjamanOnAction(ActionEvent event) {
 		LoginService.getInstance().getProfile();
 		if (LoginService.getInstance().getSession().get("id") == null) {
 			return;
@@ -19,7 +20,7 @@ public abstract class Base {
 	}
 
 	@FXML
-	void buttonRuanganOnAction(ActionEvent event) {
+	protected void buttonRuanganOnAction(ActionEvent event) {
 		LoginService.getInstance().getProfile();
 		if (LoginService.getInstance().getSession().get("id") == null) {
 			return;
@@ -29,7 +30,7 @@ public abstract class Base {
 	}
 
 	@FXML
-	void buttonFasilitasOnAction(ActionEvent event) {
+	protected void buttonFasilitasOnAction(ActionEvent event) {
 		LoginService.getInstance().getProfile();
 		if (LoginService.getInstance().getSession().get("id") == null) {
 			return;
@@ -39,7 +40,7 @@ public abstract class Base {
 	}
 
 	@FXML
-	void buttonPenggunaOnAction(ActionEvent event) {
+	protected void buttonPenggunaOnAction(ActionEvent event) {
 		LoginService.getInstance().getProfile();
 		if (LoginService.getInstance().getSession().get("id") == null) {
 			return;
@@ -55,7 +56,7 @@ public abstract class Base {
 	}
 
 	@FXML
-	void buttonLogoutOnAction(ActionEvent event) {
+	protected void buttonLogoutOnAction(ActionEvent event) {
 		if (Modal.getInstance().confirmation()) {
 			Modal.getInstance().success("Terimakasih telah menggunakan aplikasi SIRUANG");
 

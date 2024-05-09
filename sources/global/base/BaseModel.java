@@ -3,11 +3,11 @@ package global.base;
 public abstract class BaseModel {
     protected final int id;
 
-    public BaseModel() {
+    protected BaseModel() {
         this.id = -1;
     }
 
-    public BaseModel(int id) {
+    protected BaseModel(int id) {
         this.id = id;
     }
 

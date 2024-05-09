@@ -17,15 +17,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import models.authentication.LoginService;
-import components.Base;
 import components.Modal;
 
 import enums.LevelEnum;
-
+import global.base.BaseController;
 import providers.Logger;
 import providers.Utility;
 
-public class PenggunaController extends Base implements Initializable {
+public class PenggunaController extends BaseController implements Initializable {
 	private final static Logger logger = new Logger(PenggunaController.class.getName());
 
 	private final static PenggunaService service = PenggunaService.getInstance();
@@ -87,12 +86,12 @@ public class PenggunaController extends Base implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		logger.debug("initialize");
 
-		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).value));
+		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).getValue()));
 
 		tableMainColumnNama.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNama()));
 		tableMainColumnUsername.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUsername()));
 		tableMainColumnAktif.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAktif() ? "Aktif" : "Tidak Aktif"));
-		tableMainColumnLevel.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getLevel().value));
+		tableMainColumnLevel.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getLevel().getValue()));
 		tableMainColumnDibuat.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDibuat().toString()));
 		tableMainColumnDiubah.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDiubah().toString()));
 
@@ -102,14 +101,14 @@ public class PenggunaController extends Base implements Initializable {
 		choiceBoxAktif.setValue(choiceBoxAktif.getItems().get(0));
 	}
 
-	public void tableReload() {
+	private void tableReload() {
 		logger.debug("Table Reload");
 
 		tableMain.setItems(FXCollections.observableArrayList(service.find()));
 	}
 
 	@FXML
-	void tableMainItemClick(MouseEvent event) {
+	private void tableMainItemClick(MouseEvent event) {
 		logger.debug("Table Main Item Click");
 
 		this.selectedModel = tableMain.getSelectionModel().getSelectedItem();
@@ -122,7 +121,7 @@ public class PenggunaController extends Base implements Initializable {
 	}
 
 	@FXML
-	void buttonTambahOnAction(ActionEvent event) {
+	private void buttonTambahOnAction(ActionEvent event) {
 		logger.debug("Button Tambah On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -162,6 +161,8 @@ public class PenggunaController extends Base implements Initializable {
 				passwordFieldKonfirmasiPassword.clear();
 				textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
 				textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
+
+				Modal.getInstance().success("Pengguna berhasil ditambahkan");
 			}
 			catch (Exception e) {
 				Modal.getInstance().fail(e.getMessage());
@@ -172,7 +173,7 @@ public class PenggunaController extends Base implements Initializable {
 	}
 
 	@FXML
-	void buttonUbahOnAction(ActionEvent event) {
+	private void buttonUbahOnAction(ActionEvent event) {
 		logger.debug("Button Ubah On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -210,6 +211,8 @@ public class PenggunaController extends Base implements Initializable {
 					choiceBoxAktif.setValue(this.selectedModel.getAktif() ? "Aktif" : "Tidak Aktif");
 					textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
 					textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
+
+					Modal.getInstance().success("Pengguna berhasil diubah");
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());
@@ -224,7 +227,7 @@ public class PenggunaController extends Base implements Initializable {
 	}
 
 	@FXML
-	void buttonUbahPasswordOnAction(ActionEvent event) {
+	private void buttonUbahPasswordOnAction(ActionEvent event) {
 		logger.debug("Button Ubah Password On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -269,6 +272,8 @@ public class PenggunaController extends Base implements Initializable {
 
 					passwordFieldPasswordBaru.clear();
 					passwordFieldKonfirmasiPasswordBaru.clear();
+
+					Modal.getInstance().success("Password pengguna berhasil diubah");
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());
@@ -283,7 +288,7 @@ public class PenggunaController extends Base implements Initializable {
 	}
 
 	@FXML
-	void buttonHapusOnAction(ActionEvent event) {
+	private void buttonHapusOnAction(ActionEvent event) {
 		logger.debug("Button Hapus On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -308,6 +313,8 @@ public class PenggunaController extends Base implements Initializable {
 					passwordFieldKonfirmasiPassword.clear();
 					textFieldDibuat.clear();
 					textFieldDiubah.clear();
+
+					Modal.getInstance().success("Pengguna berhasil dihapus");
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());

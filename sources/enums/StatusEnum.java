@@ -3,10 +3,14 @@ package enums;
 public enum StatusEnum {
 	BELUMDIRESPON("belum direspon"), DITOLAK("ditolak"), DITERIMA("diterima");
 
-	public final String value;
+	private final String value;
 
 	private StatusEnum(String value) {
 		this.value = value;
+	}
+
+	public String getValue() {
+		return value;
 	}
 
 	public static StatusEnum valueToEnum(String value) {

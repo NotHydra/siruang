@@ -18,11 +18,11 @@ import javafx.scene.input.MouseEvent;
 import models.authentication.LoginService;
 import components.Modal;
 import enums.LevelEnum;
-import components.Base;
+import global.base.BaseController;
 import providers.Logger;
 import providers.Utility;
 
-public class FasilitasController extends Base implements Initializable {
+public class FasilitasController extends BaseController implements Initializable {
 	private final static Logger logger = new Logger(FasilitasController.class.getName());
 
 	private final static FasilitasService service = FasilitasService.getInstance();
@@ -66,7 +66,7 @@ public class FasilitasController extends Base implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		logger.debug("Initialize");
 
-		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).value));
+		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).getValue()));
 
 		tableMainColumnNama.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getNama()));
 		tableMainColumnKeterangan.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getKeterangan()));
@@ -76,14 +76,14 @@ public class FasilitasController extends Base implements Initializable {
 		tableMain.setItems(FXCollections.observableArrayList(service.find()));
 	}
 
-	public void tableReload() {
+	private void tableReload() {
 		logger.debug("Table Reload");
 
 		tableMain.setItems(FXCollections.observableArrayList(service.find()));
 	}
 
 	@FXML
-	void tableMainItemClick(MouseEvent event) {
+	private void tableMainItemClick(MouseEvent event) {
 		logger.debug("Table Main Item Click");
 
 		try {
@@ -99,7 +99,7 @@ public class FasilitasController extends Base implements Initializable {
 	}
 
 	@FXML
-	void buttonTambahOnAction(ActionEvent event) {
+	private void buttonTambahOnAction(ActionEvent event) {
 		logger.debug("Button Tambah On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -117,6 +117,8 @@ public class FasilitasController extends Base implements Initializable {
 				textAreaKeterangan.setText(this.selectedModel.getKeterangan());
 				textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
 				textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
+
+				Modal.getInstance().success("Fasilitas berhasil ditambahkan");
 			}
 			catch (Exception e) {
 				Modal.getInstance().fail(e.getMessage());
@@ -127,7 +129,7 @@ public class FasilitasController extends Base implements Initializable {
 	}
 
 	@FXML
-	void buttonUbahOnAction(ActionEvent event) {
+	private void buttonUbahOnAction(ActionEvent event) {
 		logger.debug("Button Ubah On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -150,6 +152,8 @@ public class FasilitasController extends Base implements Initializable {
 					textAreaKeterangan.setText(this.selectedModel.getKeterangan());
 					textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
 					textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
+
+					Modal.getInstance().success("Fasilitas berhasil diubah");
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());
@@ -164,7 +168,7 @@ public class FasilitasController extends Base implements Initializable {
 	}
 
 	@FXML
-	void buttonHapusOnAction(ActionEvent event) {
+	private void buttonHapusOnAction(ActionEvent event) {
 		logger.debug("Button Hapus On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -180,6 +184,8 @@ public class FasilitasController extends Base implements Initializable {
 					textFieldDiubah.clear();
 
 					this.tableReload();
+
+					Modal.getInstance().success("Fasilitas berhasil dihapus");
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());

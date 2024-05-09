@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 
 import components.Modal;
 import enums.LevelEnum;
-import components.Base;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -22,12 +21,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import providers.Logger;
 import providers.Utility;
+import global.base.BaseController;
 import global.choice_box.ChoiceBoxModel;
 import models.authentication.LoginService;
 import models.fasilitas.FasilitasModel;
 import models.fasilitas.FasilitasService;
 
-public class RuanganController extends Base implements Initializable {
+public class RuanganController extends BaseController implements Initializable {
 	private final static Logger logger = new Logger(RuanganController.class.getName());
 
 	private final static RuanganService service = RuanganService.getInstance();
@@ -94,7 +94,7 @@ public class RuanganController extends Base implements Initializable {
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		logger.debug("Initialize");
 
-		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).value));
+		labelProfile.setText(LoginService.getInstance().getSession().get("nama").toString() + " - " + Utility.capitalize(((LevelEnum) LoginService.getInstance().getSession().get("level")).getValue()));
 
 		// Ruangan
 		tableMainColumnNama.setCellValueFactory(model -> new SimpleStringProperty(model.getValue().getNama()));
@@ -119,14 +119,14 @@ public class RuanganController extends Base implements Initializable {
 		choiceBoxFasilitas.setValue(choiceBoxFasilitas.getItems().get(0));
 	}
 
-	public void tableReload() {
+	private void tableReload() {
 		logger.debug("Table Reload");
 
 		tableMain.setItems(FXCollections.observableArrayList(service.findDetailed()));
 	}
 
 	@FXML
-	void tableMainItemClick(MouseEvent event) {
+	private void tableMainItemClick(MouseEvent event) {
 		logger.debug("Table Main Item Click");
 
 		try {
@@ -157,7 +157,7 @@ public class RuanganController extends Base implements Initializable {
 	}
 
 	@FXML
-	public void buttonTambahOnAction(ActionEvent event) {
+	private void buttonTambahOnAction(ActionEvent event) {
 		logger.debug("Button Tambah On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -185,6 +185,8 @@ public class RuanganController extends Base implements Initializable {
 				textFieldKapasitas.setText(Integer.toString(this.selectedModel.getKapasitas()));
 				textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
 				textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
+
+				Modal.getInstance().success("Ruangan berhasil ditambahkan");
 			}
 			catch (Exception e) {
 				Modal.getInstance().fail(e.getMessage());
@@ -195,7 +197,7 @@ public class RuanganController extends Base implements Initializable {
 	}
 
 	@FXML
-	public void buttonUbahOnAction(ActionEvent event) {
+	private void buttonUbahOnAction(ActionEvent event) {
 		logger.debug("Button Ubah On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -228,6 +230,8 @@ public class RuanganController extends Base implements Initializable {
 					textFieldKapasitas.setText(Integer.toString(this.selectedModel.getKapasitas()));
 					textFieldDibuat.setText(this.selectedModel.getDibuat().toString());
 					textFieldDiubah.setText(this.selectedModel.getDiubah().toString());
+
+					Modal.getInstance().success("Ruangan berhasil diubah");
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());
@@ -242,7 +246,7 @@ public class RuanganController extends Base implements Initializable {
 	}
 
 	@FXML
-	public void buttonHapusOnAction(ActionEvent event) {
+	private void buttonHapusOnAction(ActionEvent event) {
 		logger.debug("Button Hapus On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -267,6 +271,8 @@ public class RuanganController extends Base implements Initializable {
 					choiceBoxFasilitas.setDisable(true);
 					buttonFasilitasTambah.setDisable(true);
 					buttonFasilitasHapus.setDisable(true);
+
+					Modal.getInstance().success("Ruangan berhasil dihapus");
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());
@@ -281,7 +287,7 @@ public class RuanganController extends Base implements Initializable {
 	}
 
 	@FXML
-	public void buttonFasilitasTambahOnAction(ActionEvent event) {
+	private void buttonFasilitasTambahOnAction(ActionEvent event) {
 		logger.debug("Button Fasilitas Tambah On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -302,6 +308,8 @@ public class RuanganController extends Base implements Initializable {
 
 				this.tableReload();
 				tableFasilitas.setItems(FXCollections.observableArrayList(this.selectedModel.getFasilitas()));
+
+				Modal.getInstance().success("Fasilitas ruangan berhasil ditambahkan");
 			}
 			catch (Exception e) {
 				Modal.getInstance().fail(e.getMessage());
@@ -312,7 +320,7 @@ public class RuanganController extends Base implements Initializable {
 	}
 
 	@FXML
-	public void buttonFasilitasHapusOnAction(ActionEvent event) {
+	private void buttonFasilitasHapusOnAction(ActionEvent event) {
 		logger.debug("Button Fasilitas Hapus On Action");
 
 		if (Modal.getInstance().confirmation()) {
@@ -326,6 +334,8 @@ public class RuanganController extends Base implements Initializable {
 
 					this.tableReload();
 					tableFasilitas.setItems(FXCollections.observableArrayList(this.selectedModel.getFasilitas()));
+
+					Modal.getInstance().success("Fasilitas ruangan berhasil dihapus");
 				}
 				catch (Exception e) {
 					Modal.getInstance().fail(e.getMessage());

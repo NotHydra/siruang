@@ -36,47 +36,47 @@ public class Database {
         return Database.instance;
     }
 
-    public void close() {
-        this.logger.debug("Close");
+    // public void close() {
+    // this.logger.debug("Close");
 
-        try {
-            if (this.connection != null && !this.connection.isClosed()) {
-                this.connection.close();
-            }
-        }
-        catch (Exception e) {
-            this.logger.error("Failed to close database connection: " + e.getMessage());
+    // try {
+    // if (this.connection != null && !this.connection.isClosed()) {
+    // this.connection.close();
+    // }
+    // }
+    // catch (Exception e) {
+    // this.logger.error("Failed to close database connection: " + e.getMessage());
 
-            throw new RuntimeException("Failed to close database connection");
-        }
-    }
+    // throw new RuntimeException("Failed to close database connection");
+    // }
+    // }
 
-    public void disableForeignKey() {
-        this.logger.debug("Disable Foreign Key");
+    // public void disableForeignKey() {
+    // this.logger.debug("Disable Foreign Key");
 
-        try {
-            this.executeUpdate("SET FOREIGN_KEY_CHECKS = 0;");
-        }
-        catch (Exception e) {
-            this.logger.error("Failed to disable foreign key checks: " + e.getMessage());
+    // try {
+    // this.executeUpdate("SET FOREIGN_KEY_CHECKS = 0;");
+    // }
+    // catch (Exception e) {
+    // this.logger.error("Failed to disable foreign key checks: " + e.getMessage());
 
-            throw new RuntimeException("Failed to disable foreign key checks");
-        }
-    }
+    // throw new RuntimeException("Failed to disable foreign key checks");
+    // }
+    // }
 
-    @SuppressWarnings("unused")
-    private boolean tableExist(String table) {
-        this.logger.debug("Table Exist");
+    // private boolean tableExist(String table) {
+    // this.logger.debug("Table Exist");
 
-        try {
-            return this.connection.getMetaData().getTables(null, null, table, null).next();
-        }
-        catch (Exception e) {
-            this.logger.error("Failed to check if table exist: " + e.getMessage());
-        }
+    // try {
+    // return this.connection.getMetaData().getTables(null, null, table,
+    // null).next();
+    // }
+    // catch (Exception e) {
+    // this.logger.error("Failed to check if table exist: " + e.getMessage());
+    // }
 
-        return false;
-    }
+    // return false;
+    // }
 
     public int tableTotal(String table) {
         this.logger.debug("Table Total");

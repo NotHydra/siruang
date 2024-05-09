@@ -3,10 +3,14 @@ package enums;
 public enum LevelEnum {
 	OPERATOR("operator"), ADMINISTRATOR("administrator");
 
-	public final String value;
+	private final String value;
 
 	private LevelEnum(String value) {
 		this.value = value;
+	}
+
+	public String getValue() {
+		return value;
 	}
 
 	public static LevelEnum valueToEnum(String value) {

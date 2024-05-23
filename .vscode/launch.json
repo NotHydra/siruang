@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Seeder",
+            "request": "launch",
+            "mainClass": "providers.Seeder",
+            "projectName": "Program_550ea084"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "App",

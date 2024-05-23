@@ -1,5 +1,6 @@
 package interfaces;
 
+
 import global.base.BaseModel;
 
 public interface ServiceFindInterface<ModelType extends BaseModel> {

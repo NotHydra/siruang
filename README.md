@@ -3,7 +3,7 @@
 <div>
     <h1><b>Room Booking Information System</b></h1>
     <p style="text-align: justify">
-        <b>SIRUANG</b> is a <b>Room Booking Information System</b> developed by using <b>Java</b> alongside with the implementation of <b>Object Oriented Programming</b> (OOP) principles.
+        <b>SIRuang</b> is a <b>Room Booking Information System</b> developed by using <b>Java</b> alongside with the implementation of <b>Object Oriented Programming</b> (OOP) principles.
     </p>
 </div>
 

@@ -1,34 +1,10 @@
 ![SIRUANG - Brand](/sources/public/image/brand-icon.png)
 
 <div>
-    <h1><b>Sistem Informasi - Peminjaman Ruangan</b></h1>
+    <h1><b>Room Booking Information System</b></h1>
     <p style="text-align: justify">
-        <b>SIRUANG</b> adalah <b>Sistem Informasi Peminjaman Ruangan</b> yang dibuat dengan menggunakan bahasa pemrograman <b>Java</b> serta penerapan  prinsip-prinsip <b><i>Object Oriented Programming</i> (OOP)</b>.
+        <b>SIRUANG</b> is a <b>Room Booking Information System</b> developed by using <b>Java</b> alongside with the implementation of <b>Object Oriented Programming</b> (OOP) principles.
     </p>
-</div>
-
-<div>
-    <h2><b>Rumusan Masalah:</b></h2>
-    <ul style="text-align: justify">
-        <li>
-            <i>Bagaimana dampak kekurangan efisiensi sistem terhadap mengurus administrasi secara keseluruhan?</i>
-        </li>
-        <li>
-            <i>Bagaimana dampak konflik jadwal dalam sistem peminjaman ruangan  yang masih manual terhadap operasional sehari-hari?</i>
-        </li>
-    </ul>
-</div>
-
-<div>
-    <h2><b>Tujuan:</b></h2>
-    <ul style="text-align: justify">
-        <li>
-            <i>Meningkatkan efisiensi dan transparansi dalam pengelolaan sebuah ruangan.</i>
-        </li>
-        <li>
-            <i>Mengurangi konflik jadwal dalam penggunaan ruangan dengan menyediakan sistem yang memungkinkan untuk penjadwalan yang lebih terkoordinasi.</i>
-        </li>
-    </ul>
 </div>
 
 <div>
